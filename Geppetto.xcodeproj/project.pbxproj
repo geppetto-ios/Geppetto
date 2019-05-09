@@ -14,6 +14,11 @@
 		69BA20D22283C1D000A06438 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D12283C1D000A06438 /* Reader.swift */; };
 		69BA20D72283C2A800A06438 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D62283C2A800A06438 /* Copyable.swift */; };
 		69BA20DA2283E67100A06438 /* Reader+MonadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */; };
+		69BA20DE2283E6F100A06438 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20DD2283E6F100A06438 /* View.swift */; };
+		69BA20E02283E72F00A06438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20DF2283E72F00A06438 /* ViewController.swift */; };
+		69BA20E32283E75500A06438 /* EnvironmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E22283E75500A06438 /* EnvironmentType.swift */; };
+		69BA20E62283E78E00A06438 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E52283E78E00A06438 /* Program.swift */; };
+		69BA20E82283E7A700A06438 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E72283E7A700A06438 /* StateMachine.swift */; };
 		69E96219227FF0BF00072369 /* Geppetto.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E96217227FF0BF00072369 /* Geppetto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7ED82C50378DE8DBAC3A38FF /* Pods_Geppetto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F913D48F054A8BF12E0204C6 /* Pods_Geppetto.framework */; };
 /* End PBXBuildFile section */
@@ -26,6 +31,11 @@
 		69BA20D12283C1D000A06438 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		69BA20D62283C2A800A06438 /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reader+MonadTransformer.swift"; sourceTree = "<group>"; };
+		69BA20DD2283E6F100A06438 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		69BA20DF2283E72F00A06438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69BA20E22283E75500A06438 /* EnvironmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentType.swift; sourceTree = "<group>"; };
+		69BA20E52283E78E00A06438 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		69BA20E72283E7A700A06438 /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		69E96214227FF0BF00072369 /* Geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E96217227FF0BF00072369 /* Geppetto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geppetto.h; sourceTree = "<group>"; };
 		69E96218227FF0BF00072369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +100,32 @@
 			path = MonadTransformers;
 			sourceTree = "<group>";
 		};
+		69BA20DC2283E6E900A06438 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69BA20DD2283E6F100A06438 /* View.swift */,
+				69BA20DF2283E72F00A06438 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69BA20E12283E74700A06438 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				69BA20E22283E75500A06438 /* EnvironmentType.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		69BA20E42283E78200A06438 /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				69BA20E52283E78E00A06438 /* Program.swift */,
+				69BA20E72283E7A700A06438 /* StateMachine.swift */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
 		69E9620A227FF0BF00072369 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +147,9 @@
 		69E96216227FF0BF00072369 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				69BA20E42283E78200A06438 /* Program */,
+				69BA20E12283E74700A06438 /* Environment */,
+				69BA20DC2283E6E900A06438 /* View */,
 				69BA20D82283E64B00A06438 /* MonadTransformers */,
 				69BA20D52283C29D00A06438 /* Util */,
 				69BA20CC2283C06E00A06438 /* Types */,
@@ -234,11 +273,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69BA20DE2283E6F100A06438 /* View.swift in Sources */,
 				69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */,
 				69BA20D02283C13E00A06438 /* Unit.swift in Sources */,
+				69BA20E02283E72F00A06438 /* ViewController.swift in Sources */,
 				69BA20C92283BF2F00A06438 /* Operators.swift in Sources */,
 				69BA20D22283C1D000A06438 /* Reader.swift in Sources */,
+				69BA20E62283E78E00A06438 /* Program.swift in Sources */,
+				69BA20E82283E7A700A06438 /* StateMachine.swift in Sources */,
 				69BA20D72283C2A800A06438 /* Copyable.swift in Sources */,
+				69BA20E32283E75500A06438 /* EnvironmentType.swift in Sources */,
 				69BA20DA2283E67100A06438 /* Reader+MonadTransformer.swift in Sources */,
 				69BA20CB2283BFFC00A06438 /* Identity.swift in Sources */,
 			);

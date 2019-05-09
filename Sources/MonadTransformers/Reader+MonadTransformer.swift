@@ -13,3 +13,7 @@ public extension ReaderType where Value: ObservableType {
         return map { observable in observable.map(f) }
     }
 }
+
+public extension ReaderType where Value: ObservableType, Value.Element: OptionalType {
+    static var none: Reader<Env, Observable<Value.Element.Wrapped?>> { return Reader<Env, Observable<Value.Element.Wrapped?>> { _ in Observable.just(nil) } }
+}
