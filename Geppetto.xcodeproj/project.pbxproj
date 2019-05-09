@@ -13,7 +13,9 @@
 		69BA20D02283C13E00A06438 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CF2283C13E00A06438 /* Unit.swift */; };
 		69BA20D22283C1D000A06438 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D12283C1D000A06438 /* Reader.swift */; };
 		69BA20D72283C2A800A06438 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D62283C2A800A06438 /* Copyable.swift */; };
+		69BA20DA2283E67100A06438 /* Reader+MonadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */; };
 		69E96219227FF0BF00072369 /* Geppetto.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E96217227FF0BF00072369 /* Geppetto.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7ED82C50378DE8DBAC3A38FF /* Pods_Geppetto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F913D48F054A8BF12E0204C6 /* Pods_Geppetto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +25,13 @@
 		69BA20CF2283C13E00A06438 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		69BA20D12283C1D000A06438 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		69BA20D62283C2A800A06438 /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
+		69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reader+MonadTransformer.swift"; sourceTree = "<group>"; };
 		69E96214227FF0BF00072369 /* Geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E96217227FF0BF00072369 /* Geppetto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geppetto.h; sourceTree = "<group>"; };
 		69E96218227FF0BF00072369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77EC7032185D8A43843597C4 /* Pods-Geppetto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geppetto.release.xcconfig"; path = "Target Support Files/Pods-Geppetto/Pods-Geppetto.release.xcconfig"; sourceTree = "<group>"; };
+		F913D48F054A8BF12E0204C6 /* Pods_Geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC4B68A4B71703443C5C683B /* Pods-Geppetto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geppetto.debug.xcconfig"; path = "Target Support Files/Pods-Geppetto/Pods-Geppetto.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +39,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED82C50378DE8DBAC3A38FF /* Pods_Geppetto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55952B61551FB26124E8ACE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC4B68A4B71703443C5C683B /* Pods-Geppetto.debug.xcconfig */,
+				77EC7032185D8A43843597C4 /* Pods-Geppetto.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		69BA20C72283BF2200A06438 /* Functional */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,11 +82,21 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		69BA20D82283E64B00A06438 /* MonadTransformers */ = {
+			isa = PBXGroup;
+			children = (
+				69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */,
+			);
+			path = MonadTransformers;
+			sourceTree = "<group>";
+		};
 		69E9620A227FF0BF00072369 = {
 			isa = PBXGroup;
 			children = (
 				69E96216227FF0BF00072369 /* Sources */,
 				69E96215227FF0BF00072369 /* Products */,
+				55952B61551FB26124E8ACE9 /* Pods */,
+				D63A4C34B8A6A8D49CE4F05E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +111,7 @@
 		69E96216227FF0BF00072369 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				69BA20D82283E64B00A06438 /* MonadTransformers */,
 				69BA20D52283C29D00A06438 /* Util */,
 				69BA20CC2283C06E00A06438 /* Types */,
 				69BA20C72283BF2200A06438 /* Functional */,
@@ -92,6 +119,14 @@
 				69E96218227FF0BF00072369 /* Info.plist */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		D63A4C34B8A6A8D49CE4F05E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F913D48F054A8BF12E0204C6 /* Pods_Geppetto.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +147,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69E9621C227FF0BF00072369 /* Build configuration list for PBXNativeTarget "Geppetto" */;
 			buildPhases = (
+				625A2BE0492929D35F9583D2 /* [CP] Check Pods Manifest.lock */,
 				69E9620F227FF0BF00072369 /* Headers */,
 				69E96210227FF0BF00072369 /* Sources */,
 				69E96211227FF0BF00072369 /* Frameworks */,
@@ -168,6 +204,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		625A2BE0492929D35F9583D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Geppetto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		69E96210227FF0BF00072369 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -178,6 +239,7 @@
 				69BA20C92283BF2F00A06438 /* Operators.swift in Sources */,
 				69BA20D22283C1D000A06438 /* Reader.swift in Sources */,
 				69BA20D72283C2A800A06438 /* Copyable.swift in Sources */,
+				69BA20DA2283E67100A06438 /* Reader+MonadTransformer.swift in Sources */,
 				69BA20CB2283BFFC00A06438 /* Identity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +371,7 @@
 		};
 		69E9621D227FF0BF00072369 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC4B68A4B71703443C5C683B /* Pods-Geppetto.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -335,6 +398,7 @@
 		};
 		69E9621E227FF0BF00072369 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77EC7032185D8A43843597C4 /* Pods-Geppetto.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
