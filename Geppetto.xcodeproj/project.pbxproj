@@ -30,7 +30,7 @@
 		69E9620A227FF0BF00072369 = {
 			isa = PBXGroup;
 			children = (
-				69E96216227FF0BF00072369 /* Geppetto */,
+				69E96216227FF0BF00072369 /* Sources */,
 				69E96215227FF0BF00072369 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,13 +43,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		69E96216227FF0BF00072369 /* Geppetto */ = {
+		69E96216227FF0BF00072369 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				69E96217227FF0BF00072369 /* Geppetto.h */,
 				69E96218227FF0BF00072369 /* Info.plist */,
 			);
-			path = Geppetto;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +267,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Geppetto/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -291,7 +291,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Geppetto/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
