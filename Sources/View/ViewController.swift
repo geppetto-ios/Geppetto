@@ -9,12 +9,12 @@
 import UIKit
 import RxSwift
 
-public class ViewController<P: Program>: UIViewController, View {
+open class ViewController<P: Program>: UIViewController, View {
     public let model$: ReplaySubject<P.Model> = ReplaySubject.create(bufferSize: 1)
     public let message$: PublishSubject<P.Message> = PublishSubject()
     public let disposeBag: DisposeBag = DisposeBag()
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         layout()
@@ -22,19 +22,19 @@ public class ViewController<P: Program>: UIViewController, View {
         behavior()
     }
     
-    public func addSubviews() {
+    open func addSubviews() {
         
     }
     
-    public func layout() {
+    open func layout() {
         
     }
     
-    public func style() {
+    open func style() {
         
     }
     
-    public func behavior() {
+    open func behavior() {
         
     }
 }

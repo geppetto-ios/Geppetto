@@ -28,4 +28,8 @@ public extension ReaderType {
 
 public struct Reader<Environment, Value>: ReaderType {
     public let run: (Environment) -> Value
+    
+    public init(run: @escaping (Environment) -> Value) {
+        self.run = run
+    }
 }
