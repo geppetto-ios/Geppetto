@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69BA20C92283BF2F00A06438 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20C82283BF2F00A06438 /* Operators.swift */; };
+		69BA20CB2283BFFC00A06438 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CA2283BFFC00A06438 /* Identity.swift */; };
 		69E96219227FF0BF00072369 /* Geppetto.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E96217227FF0BF00072369 /* Geppetto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69BA20C82283BF2F00A06438 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		69BA20CA2283BFFC00A06438 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		69E96214227FF0BF00072369 /* Geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E96217227FF0BF00072369 /* Geppetto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geppetto.h; sourceTree = "<group>"; };
 		69E96218227FF0BF00072369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +31,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69BA20C72283BF2200A06438 /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+				69BA20C82283BF2F00A06438 /* Operators.swift */,
+				69BA20CA2283BFFC00A06438 /* Identity.swift */,
+			);
+			path = Functional;
+			sourceTree = "<group>";
+		};
 		69E9620A227FF0BF00072369 = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +59,7 @@
 		69E96216227FF0BF00072369 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				69BA20C72283BF2200A06438 /* Functional */,
 				69E96217227FF0BF00072369 /* Geppetto.h */,
 				69E96218227FF0BF00072369 /* Info.plist */,
 			);
@@ -95,6 +109,7 @@
 				TargetAttributes = {
 					69E96213227FF0BF00072369 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -130,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69BA20C92283BF2F00A06438 /* Operators.swift in Sources */,
+				69BA20CB2283BFFC00A06438 /* Identity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +278,7 @@
 		69E9621D227FF0BF00072369 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -277,6 +295,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rinndash.Geppetto;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -285,6 +304,7 @@
 		69E9621E227FF0BF00072369 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
