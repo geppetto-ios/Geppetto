@@ -56,3 +56,13 @@ public extension Program {
         disposables.disposed(by: view.disposeBag)
     }
 }
+
+public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait {
+    func withMessage<Message>(_ f: @escaping (Value.Element) -> Message) -> Cmd<Env, Message?> {
+        return map { return $0.map(f).asObservable() }
+    }
+    
+    func withoutMessage<Message>() -> Cmd<Env, Message?> {
+        return map { return $0.map { _ in nil }.asObservable() }
+    }
+}

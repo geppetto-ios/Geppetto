@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		69BA20C92283BF2F00A06438 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20C82283BF2F00A06438 /* Operators.swift */; };
-		69BA20CB2283BFFC00A06438 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CA2283BFFC00A06438 /* Identity.swift */; };
+		69BA20CB2283BFFC00A06438 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CA2283BFFC00A06438 /* Functions.swift */; };
 		69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CD2283C08B00A06438 /* OptionalType.swift */; };
 		69BA20D02283C13E00A06438 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CF2283C13E00A06438 /* Unit.swift */; };
 		69BA20D22283C1D000A06438 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D12283C1D000A06438 /* Reader.swift */; };
@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		69BA20C82283BF2F00A06438 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
-		69BA20CA2283BFFC00A06438 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
+		69BA20CA2283BFFC00A06438 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		69BA20CD2283C08B00A06438 /* OptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
 		69BA20CF2283C13E00A06438 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		69BA20D12283C1D000A06438 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				69BA20C82283BF2F00A06438 /* Operators.swift */,
-				69BA20CA2283BFFC00A06438 /* Identity.swift */,
+				69BA20CA2283BFFC00A06438 /* Functions.swift */,
 			);
 			path = Functional;
 			sourceTree = "<group>";
@@ -284,7 +284,7 @@
 				69BA20D72283C2A800A06438 /* Copyable.swift in Sources */,
 				69BA20E32283E75500A06438 /* EnvironmentType.swift in Sources */,
 				69BA20DA2283E67100A06438 /* Reader+MonadTransformer.swift in Sources */,
-				69BA20CB2283BFFC00A06438 /* Identity.swift in Sources */,
+				69BA20CB2283BFFC00A06438 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

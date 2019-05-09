@@ -9,3 +9,7 @@
 public func id<T>(_ x: T) -> T {
     return x
 }
+
+public func const<T, C>(_ x: C) -> (T) -> C {
+    return { _ in x }
+}
