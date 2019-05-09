@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		69BA20C92283BF2F00A06438 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20C82283BF2F00A06438 /* Operators.swift */; };
 		69BA20CB2283BFFC00A06438 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CA2283BFFC00A06438 /* Identity.swift */; };
+		69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CD2283C08B00A06438 /* OptionalType.swift */; };
 		69E96219227FF0BF00072369 /* Geppetto.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E96217227FF0BF00072369 /* Geppetto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		69BA20C82283BF2F00A06438 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		69BA20CA2283BFFC00A06438 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
+		69BA20CD2283C08B00A06438 /* OptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
 		69E96214227FF0BF00072369 /* Geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E96217227FF0BF00072369 /* Geppetto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geppetto.h; sourceTree = "<group>"; };
 		69E96218227FF0BF00072369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +42,14 @@
 			path = Functional;
 			sourceTree = "<group>";
 		};
+		69BA20CC2283C06E00A06438 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				69BA20CD2283C08B00A06438 /* OptionalType.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
 		69E9620A227FF0BF00072369 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +69,7 @@
 		69E96216227FF0BF00072369 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				69BA20CC2283C06E00A06438 /* Types */,
 				69BA20C72283BF2200A06438 /* Functional */,
 				69E96217227FF0BF00072369 /* Geppetto.h */,
 				69E96218227FF0BF00072369 /* Info.plist */,
@@ -145,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */,
 				69BA20C92283BF2F00A06438 /* Operators.swift in Sources */,
 				69BA20CB2283BFFC00A06438 /* Identity.swift in Sources */,
 			);
