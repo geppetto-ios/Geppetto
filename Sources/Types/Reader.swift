@@ -13,6 +13,16 @@ public protocol ReaderType {
 }
 
 public extension ReaderType {
+    static func pure(_ a: Value) -> Reader<Env, Value> {
+        return Reader<Env, Value> { _ in a }
+    }
+    
+    func flatMap<U>(_ f: @escaping (Value) -> Reader<Env, U>) -> Reader<Env, U> {
+        return Reader<Env, U> { i in f(self.run(i)).run(i) }
+    }
+}
+
+public extension ReaderType {
     func dimap<F, U>(from: @escaping (F) -> Env, to: @escaping (Value) -> U) -> Reader<F, U> {
         return Reader<F, U>.init(run: from >>> self.run >>> to)
     }
