@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Geppetto"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "Declaritive Reactive Functional Architecture for iOS Application"
   s.homepage     = "https://github.com/rinndash/Geppetto"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   
   s.framework  = "Foundation", "UIKit"
   
-  s.dependency = 'RxSwift', '~> 5'
-  s.dependency = 'RxCocoa', '~> 5'
-  s.dependency = 'RxSwiftExt', '~> 5'
+  s.dependency "RxSwift", '~> 5'
+  s.dependency "RxCocoa", '~> 5'
+  s.dependency "RxSwiftExt", '~> 5'
 end
