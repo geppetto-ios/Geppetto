@@ -6,9 +6,9 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Jinseo Yoon" => "rinndash@gmail.com" }
   s.platform     = :ios, "10.0"
-  s.source       = { :git => "https://github.com/rinndash/Geppetto.git", :commit => "210b37312991ebe30d5ecc017779af030440fcb5" }
+  s.source       = { :git => "https://github.com/rinndash/Geppetto.git", :tag => s.version.to_s }
   s.source_files  = "Sources", "Sources/**/*.{h,m,swift}"
-  
+
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  Link your library with frameworks, or libraries. Libraries do not include
