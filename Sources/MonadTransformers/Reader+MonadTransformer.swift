@@ -8,9 +8,9 @@
 
 import RxSwift
 
-public extension ReaderType where Value: ObservableType {
+public extension ReaderType where Value: ObservableConvertibleType {
     func mapT<U>(_ f: @escaping (Value.Element) -> U) -> Reader<Env, Observable<U>> {
-        return map { observable in observable.map(f) }
+        return map { x in x.asObservable().map(f) }
     }
 }
 

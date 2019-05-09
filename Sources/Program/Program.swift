@@ -9,7 +9,8 @@
 import RxSwift
 import RxSwiftExt
 
-public typealias Task<E, T> = Reader<E, Observable<T>>
+public typealias Task<E, T> = Reader<E, Single<T>>
+public typealias Cmd<E, T> = Reader<E, Observable<T>>
 
 public protocol ModelType {
     static var initial: Self { get }
@@ -19,16 +20,16 @@ public protocol Program {
     associatedtype Environment: EnvironmentType
     associatedtype Message
     associatedtype Model: ModelType
-    typealias Cmd = Reader<Environment, Observable<Message?>>
+    typealias Command = Cmd<Environment, Message?>
     
-    static var initialCommand: Cmd { get }
-    static func update(model: Model, message: Message) -> (Model, Cmd)
+    static var initialCommand: Command { get }
+    static func update(model: Model, message: Message) -> (Model, Command)
 }
 
 public extension Program {
-    static func app(_ message$: Observable<Message>) -> (Observable<(Model, Cmd)>) {
+    static func app(_ message$: Observable<Message>) -> (Observable<(Model, Command)>) {
         return message$
-            .scan((Model.initial, initialCommand)) { model_command, message -> (Self.Model, Cmd) in
+            .scan((Model.initial, initialCommand)) { model_command, message -> (Self.Model, Command) in
                 let (model, _) = model_command
                 return update(model: model, message: message)
         }

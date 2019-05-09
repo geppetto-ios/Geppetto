@@ -16,11 +16,11 @@ public protocol StateMachine: Program where Environment == Unit {
 }
 
 extension StateMachine {
-    static var initialCommand: Cmd {
+    static var initialCommand: Command {
         return .none
     }
     
-    static func update(model: Model, message: Message) -> (Model, Cmd) {
+    static func update(model: Model, message: Message) -> (Model, Command) {
         return (update(model: model, message: message), .none)
     }
     
