@@ -1,2 +1,2 @@
 # Geppetto
-Declaritive Reactive Functional Architecture for iOS Application
+Declarative Reactive Functional Architecture for iOS Application
