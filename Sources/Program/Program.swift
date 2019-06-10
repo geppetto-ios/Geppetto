@@ -47,7 +47,7 @@ public extension Program {
         )
         
         let model_command$: Observable<(Model, Cmd)> = app(message$)
-            .share(replay: 1, scope: .forever)            
+            .share(replay: 1, scope: .forever)
         
         let modelDisposable = model_command$.map { $0.0 }.bind(to: modelProxy)
         let cmdDisposable = model_command$.map { $0.1 }.bind(to: commandProxy)
