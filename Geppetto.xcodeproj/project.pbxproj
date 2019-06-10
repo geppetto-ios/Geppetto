@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3F72C022AE1E110055620C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F72BF22AE1E110055620C /* AppDelegate.swift */; };
+		1F3F72C222AE1E110055620C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F72C122AE1E110055620C /* ViewController.swift */; };
+		1F3F72C522AE1E110055620C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F72C322AE1E110055620C /* Main.storyboard */; };
+		1F3F72C722AE1E110055620C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F72C622AE1E110055620C /* Assets.xcassets */; };
+		1F3F72CA22AE1E110055620C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F72C822AE1E110055620C /* LaunchScreen.storyboard */; };
 		69BA20C92283BF2F00A06438 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20C82283BF2F00A06438 /* Operators.swift */; };
 		69BA20CB2283BFFC00A06438 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CA2283BFFC00A06438 /* Functions.swift */; };
 		69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CD2283C08B00A06438 /* OptionalType.swift */; };
@@ -23,7 +28,24 @@
 		7ED82C50378DE8DBAC3A38FF /* Pods_Geppetto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F913D48F054A8BF12E0204C6 /* Pods_Geppetto.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1F3F72CF22AE1E250055620C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69E9620B227FF0BF00072369 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69E96213227FF0BF00072369;
+			remoteInfo = Geppetto;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1F3F72BD22AE1E100055620C /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F3F72BF22AE1E110055620C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F3F72C122AE1E110055620C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F3F72C422AE1E110055620C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F3F72C622AE1E110055620C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F3F72C922AE1E110055620C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1F3F72CB22AE1E110055620C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69BA20C82283BF2F00A06438 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		69BA20CA2283BFFC00A06438 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		69BA20CD2283C08B00A06438 /* OptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
@@ -45,6 +67,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1F3F72BA22AE1E100055620C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69E96211227FF0BF00072369 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,6 +85,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F3F72BE22AE1E110055620C /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				1F3F72BF22AE1E110055620C /* AppDelegate.swift */,
+				1F3F72C122AE1E110055620C /* ViewController.swift */,
+				1F3F72C322AE1E110055620C /* Main.storyboard */,
+				1F3F72C622AE1E110055620C /* Assets.xcassets */,
+				1F3F72C822AE1E110055620C /* LaunchScreen.storyboard */,
+				1F3F72CB22AE1E110055620C /* Info.plist */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		55952B61551FB26124E8ACE9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				69E96216227FF0BF00072369 /* Sources */,
+				1F3F72BE22AE1E110055620C /* Example */,
 				69E96215227FF0BF00072369 /* Products */,
 				55952B61551FB26124E8ACE9 /* Pods */,
 				D63A4C34B8A6A8D49CE4F05E /* Frameworks */,
@@ -140,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				69E96214227FF0BF00072369 /* Geppetto.framework */,
+				1F3F72BD22AE1E100055620C /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +226,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1F3F72BC22AE1E100055620C /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F3F72CE22AE1E110055620C /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				1F3F72B922AE1E100055620C /* Sources */,
+				1F3F72BA22AE1E100055620C /* Frameworks */,
+				1F3F72BB22AE1E100055620C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F3F72D022AE1E250055620C /* PBXTargetDependency */,
+			);
+			name = Example;
+			productName = Example;
+			productReference = 1F3F72BD22AE1E100055620C /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 		69E96213227FF0BF00072369 /* Geppetto */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69E9621C227FF0BF00072369 /* Build configuration list for PBXNativeTarget "Geppetto" */;
@@ -207,9 +269,13 @@
 		69E9620B227FF0BF00072369 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = rinndash;
 				TargetAttributes = {
+					1F3F72BC22AE1E100055620C = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					69E96213227FF0BF00072369 = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
@@ -222,6 +288,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 69E9620A227FF0BF00072369;
 			productRefGroup = 69E96215227FF0BF00072369 /* Products */;
@@ -229,11 +296,22 @@
 			projectRoot = "";
 			targets = (
 				69E96213227FF0BF00072369 /* Geppetto */,
+				1F3F72BC22AE1E100055620C /* Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1F3F72BB22AE1E100055620C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F3F72CA22AE1E110055620C /* LaunchScreen.storyboard in Resources */,
+				1F3F72C722AE1E110055620C /* Assets.xcassets in Resources */,
+				1F3F72C522AE1E110055620C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69E96212227FF0BF00072369 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +347,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1F3F72B922AE1E100055620C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F3F72C222AE1E110055620C /* ViewController.swift in Sources */,
+				1F3F72C022AE1E110055620C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69E96210227FF0BF00072369 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -290,7 +377,70 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1F3F72D022AE1E250055620C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69E96213227FF0BF00072369 /* Geppetto */;
+			targetProxy = 1F3F72CF22AE1E250055620C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F3F72C322AE1E110055620C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F3F72C422AE1E110055620C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1F3F72C822AE1E110055620C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F3F72C922AE1E110055620C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		1F3F72CC22AE1E110055620C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68L248M44U;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.geppetto.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1F3F72CD22AE1E110055620C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68L248M44U;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.geppetto.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		69E9621A227FF0BF00072369 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -469,6 +619,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F3F72CE22AE1E110055620C /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F3F72CC22AE1E110055620C /* Debug */,
+				1F3F72CD22AE1E110055620C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		69E9620E227FF0BF00072369 /* Build configuration list for PBXProject "Geppetto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
