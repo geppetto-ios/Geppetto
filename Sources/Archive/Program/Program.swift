@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import RxSwiftExt
 
 public typealias Task<E, T> = Reader<E, Single<T>>
 public typealias Cmd<E, T> = Reader<E, Observable<T>>
@@ -57,8 +56,8 @@ public extension Program {
     }
 }
 
-public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait {
-    func withMessage<Message>(_ f: @escaping (Value.Element) -> Message) -> Cmd<Env, Message?> {
+public extension ReaderType where Value: PrimitiveSequenceType, Value.TraitType == RxSwift.SingleTrait {
+    func withMessage<Message>(_ f: @escaping (Value.ElementType) -> Message) -> Cmd<Env, Message?> {
         return map { return $0.map(f).asObservable() }
     }
     

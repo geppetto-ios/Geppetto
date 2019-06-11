@@ -1,2 +1,4 @@
+# Rx
 github "ReactiveX/RxSwift" ~> 5.0
-github "RxSwiftCommunity/RxSwiftExt"
+github "RxSwiftCommunity/RxDataSources"
+github "RxSwiftCommunity/RxOptional"

@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F49939422AE4A25006B1D6B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F49939322AE4A24006B1D6B /* RxSwift.framework */; };
-		1F49939622AE4A31006B1D6B /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F49939522AE4A31006B1D6B /* RxSwiftExt.framework */; };
-		69BA20C92283BF2F00A06438 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20C82283BF2F00A06438 /* Operators.swift */; };
-		69BA20CB2283BFFC00A06438 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CA2283BFFC00A06438 /* Functions.swift */; };
-		69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CD2283C08B00A06438 /* OptionalType.swift */; };
-		69BA20D02283C13E00A06438 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CF2283C13E00A06438 /* Unit.swift */; };
-		69BA20D22283C1D000A06438 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D12283C1D000A06438 /* Reader.swift */; };
-		69BA20D72283C2A800A06438 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D62283C2A800A06438 /* Copyable.swift */; };
-		69BA20DA2283E67100A06438 /* Reader+MonadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */; };
-		69BA20DE2283E6F100A06438 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20DD2283E6F100A06438 /* View.swift */; };
-		69BA20E02283E72F00A06438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20DF2283E72F00A06438 /* ViewController.swift */; };
-		69BA20E32283E75500A06438 /* EnvironmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E22283E75500A06438 /* EnvironmentType.swift */; };
-		69BA20E62283E78E00A06438 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E52283E78E00A06438 /* Program.swift */; };
-		69BA20E82283E7A700A06438 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E72283E7A700A06438 /* StateMachine.swift */; };
+		1F4993B822AF76C0006B1D6B /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993B722AF76C0006B1D6B /* Program.swift */; };
+		1F4993BA22AF76FF006B1D6B /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993B922AF76FF006B1D6B /* Reader.swift */; };
+		1F4993C722AF7C41006B1D6B /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993C622AF7C41006B1D6B /* Effect.swift */; };
+		1F4993CD22AF7FA4006B1D6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993CC22AF7FA4006B1D6B /* ViewController.swift */; };
+		1F4993D122AF87E6006B1D6B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993CF22AF87E6006B1D6B /* Functions.swift */; };
+		1F4993D222AF87E6006B1D6B /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993D022AF87E6006B1D6B /* Operators.swift */; };
+		1F4993D522AF8814006B1D6B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993D422AF8814006B1D6B /* View.swift */; };
+		1F4993D722AF88E3006B1D6B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993D622AF88E3006B1D6B /* Error.swift */; };
+		1F4993D922AF8A0F006B1D6B /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993D822AF8A0F006B1D6B /* Command.swift */; };
+		1F4993DC22AF8A65006B1D6B /* Rx+Riiid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4993DB22AF8A65006B1D6B /* Rx+Riiid.swift */; };
+		1F49940C22AF8E47006B1D6B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F49939322AE4A24006B1D6B /* RxSwift.framework */; };
+		1F49940D22AF8E51006B1D6B /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4993B522AF41E5006B1D6B /* RxDataSources.framework */; };
+		1F49940F22AF93A0006B1D6B /* RxOptional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F49940E22AF93A0006B1D6B /* RxOptional.framework */; };
+		1F49941122AF98E8006B1D6B /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F49941022AF98E8006B1D6B /* UIViewController+Rx.swift */; };
 		69E96219227FF0BF00072369 /* Geppetto.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E96217227FF0BF00072369 /* Geppetto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -45,13 +45,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = C809396D1B8A71760088E94D;
 			remoteInfo = RxCocoa;
-		};
-		1F49937422AE49F7006B1D6B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F49936022AE49F7006B1D6B /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A2897D53225CA1E7004EA481;
-			remoteInfo = RxRelay;
 		};
 		1F49937622AE49F7006B1D6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -136,6 +129,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = C82E1DB01DC69E8D004A6413;
 			remoteInfo = "RxExample-macOSUITests";
+		};
+		1F49940A22AF8E2E006B1D6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F49936022AE49F7006B1D6B /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A2897D53225CA1E7004EA481;
+			remoteInfo = RxRelay;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1259,18 +1259,21 @@
 		1F49939722AE4A3E006B1D6B /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		1F49939922AE4A78006B1D6B /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		1F49939B22AE4A83006B1D6B /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		69BA20C82283BF2F00A06438 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
-		69BA20CA2283BFFC00A06438 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		69BA20CD2283C08B00A06438 /* OptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
-		69BA20CF2283C13E00A06438 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
-		69BA20D12283C1D000A06438 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
-		69BA20D62283C2A800A06438 /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
-		69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reader+MonadTransformer.swift"; sourceTree = "<group>"; };
-		69BA20DD2283E6F100A06438 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		69BA20DF2283E72F00A06438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		69BA20E22283E75500A06438 /* EnvironmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentType.swift; sourceTree = "<group>"; };
-		69BA20E52283E78E00A06438 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
-		69BA20E72283E7A700A06438 /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
+		1F4993B522AF41E5006B1D6B /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		1F4993B722AF76C0006B1D6B /* Program.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		1F4993B922AF76FF006B1D6B /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		1F4993C222AF7B03006B1D6B /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = "<group>"; };
+		1F4993C422AF7B16006B1D6B /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/iOS/Argo.framework; sourceTree = "<group>"; };
+		1F4993C622AF7C41006B1D6B /* Effect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
+		1F4993CC22AF7FA4006B1D6B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F4993CF22AF87E6006B1D6B /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		1F4993D022AF87E6006B1D6B /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		1F4993D422AF8814006B1D6B /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		1F4993D622AF88E3006B1D6B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		1F4993D822AF8A0F006B1D6B /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		1F4993DB22AF8A65006B1D6B /* Rx+Riiid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+Riiid.swift"; sourceTree = "<group>"; };
+		1F49940E22AF93A0006B1D6B /* RxOptional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxOptional.framework; path = Carthage/Build/iOS/RxOptional.framework; sourceTree = "<group>"; };
+		1F49941022AF98E8006B1D6B /* UIViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		69E96214227FF0BF00072369 /* Geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E96217227FF0BF00072369 /* Geppetto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geppetto.h; sourceTree = "<group>"; };
 		69E96218227FF0BF00072369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1281,8 +1284,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F49939622AE4A31006B1D6B /* RxSwiftExt.framework in Frameworks */,
-				1F49939422AE4A25006B1D6B /* RxSwift.framework in Frameworks */,
+				1F49940F22AF93A0006B1D6B /* RxOptional.framework in Frameworks */,
+				1F49940D22AF8E51006B1D6B /* RxDataSources.framework in Frameworks */,
+				1F49940C22AF8E47006B1D6B /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1292,6 +1296,10 @@
 		1F498E9C22AE49F6006B1D6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F49940E22AF93A0006B1D6B /* RxOptional.framework */,
+				1F4993C422AF7B16006B1D6B /* Argo.framework */,
+				1F4993C222AF7B03006B1D6B /* Runes.framework */,
+				1F4993B522AF41E5006B1D6B /* RxDataSources.framework */,
 				1F49939B22AE4A83006B1D6B /* RxCocoa.framework */,
 				1F49939922AE4A78006B1D6B /* RxBlocking.framework */,
 				1F49939722AE4A3E006B1D6B /* RxRelay.framework */,
@@ -3241,7 +3249,7 @@
 			children = (
 				1F49937122AE49F7006B1D6B /* RxSwift.framework */,
 				1F49937322AE49F7006B1D6B /* RxCocoa.framework */,
-				1F49937522AE49F7006B1D6B /* RxRelay.framework */,
+				1F49940B22AF8E2E006B1D6B /* RxRelay.framework */,
 				1F49937722AE49F7006B1D6B /* RxBlocking.framework */,
 				1F49937922AE49F7006B1D6B /* RxTest.framework */,
 				1F49937B22AE49F7006B1D6B /* AllTests-iOS.xctest */,
@@ -3253,65 +3261,50 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		69BA20C72283BF2200A06438 /* Functional */ = {
+		1F4993BB22AF77EF006B1D6B /* Infra */ = {
 			isa = PBXGroup;
 			children = (
-				69BA20C82283BF2F00A06438 /* Operators.swift */,
-				69BA20CA2283BFFC00A06438 /* Functions.swift */,
+				1F4993D822AF8A0F006B1D6B /* Command.swift */,
+				1F4993C622AF7C41006B1D6B /* Effect.swift */,
+				1F4993B922AF76FF006B1D6B /* Reader.swift */,
+				1F4993B722AF76C0006B1D6B /* Program.swift */,
+				1F4993D622AF88E3006B1D6B /* Error.swift */,
+			);
+			path = Infra;
+			sourceTree = "<group>";
+		};
+		1F4993CB22AF7FA4006B1D6B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F4993CC22AF7FA4006B1D6B /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1F4993CE22AF87E6006B1D6B /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+				1F4993CF22AF87E6006B1D6B /* Functions.swift */,
+				1F4993D022AF87E6006B1D6B /* Operators.swift */,
 			);
 			path = Functional;
 			sourceTree = "<group>";
 		};
-		69BA20CC2283C06E00A06438 /* Types */ = {
+		1F4993D322AF8814006B1D6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				69BA20CD2283C08B00A06438 /* OptionalType.swift */,
-				69BA20D12283C1D000A06438 /* Reader.swift */,
-				69BA20CF2283C13E00A06438 /* Unit.swift */,
+				1F4993D422AF8814006B1D6B /* View.swift */,
 			);
-			path = Types;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		69BA20D52283C29D00A06438 /* Util */ = {
+		1F4993DA22AF8A65006B1D6B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				69BA20D62283C2A800A06438 /* Copyable.swift */,
+				1F4993DB22AF8A65006B1D6B /* Rx+Riiid.swift */,
+				1F49941022AF98E8006B1D6B /* UIViewController+Rx.swift */,
 			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		69BA20D82283E64B00A06438 /* MonadTransformers */ = {
-			isa = PBXGroup;
-			children = (
-				69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */,
-			);
-			path = MonadTransformers;
-			sourceTree = "<group>";
-		};
-		69BA20DC2283E6E900A06438 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				69BA20DD2283E6F100A06438 /* View.swift */,
-				69BA20DF2283E72F00A06438 /* ViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		69BA20E12283E74700A06438 /* Environment */ = {
-			isa = PBXGroup;
-			children = (
-				69BA20E22283E75500A06438 /* EnvironmentType.swift */,
-			);
-			path = Environment;
-			sourceTree = "<group>";
-		};
-		69BA20E42283E78200A06438 /* Program */ = {
-			isa = PBXGroup;
-			children = (
-				69BA20E52283E78E00A06438 /* Program.swift */,
-				69BA20E72283E7A700A06438 /* StateMachine.swift */,
-			);
-			path = Program;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		69E9620A227FF0BF00072369 = {
@@ -3334,13 +3327,11 @@
 		69E96216227FF0BF00072369 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				69BA20E42283E78200A06438 /* Program */,
-				69BA20E12283E74700A06438 /* Environment */,
-				69BA20DC2283E6E900A06438 /* View */,
-				69BA20D82283E64B00A06438 /* MonadTransformers */,
-				69BA20D52283C29D00A06438 /* Util */,
-				69BA20CC2283C06E00A06438 /* Types */,
-				69BA20C72283BF2200A06438 /* Functional */,
+				1F4993DA22AF8A65006B1D6B /* Extensions */,
+				1F4993D322AF8814006B1D6B /* Views */,
+				1F4993CE22AF87E6006B1D6B /* Functional */,
+				1F4993CB22AF7FA4006B1D6B /* ViewControllers */,
+				1F4993BB22AF77EF006B1D6B /* Infra */,
 				69E96217227FF0BF00072369 /* Geppetto.h */,
 				69E96218227FF0BF00072369 /* Info.plist */,
 			);
@@ -3450,13 +3441,6 @@
 			remoteRef = 1F49937222AE49F7006B1D6B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1F49937522AE49F7006B1D6B /* RxRelay.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RxRelay.framework;
-			remoteRef = 1F49937422AE49F7006B1D6B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		1F49937722AE49F7006B1D6B /* RxBlocking.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -3542,6 +3526,13 @@
 			remoteRef = 1F49939122AE49F7006B1D6B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		1F49940B22AF8E2E006B1D6B /* RxRelay.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxRelay.framework;
+			remoteRef = 1F49940A22AF8E2E006B1D6B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -3564,7 +3555,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwiftExt.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxOptional.framework",
 			);
 			name = "Carthage Script";
 			outputFileListPaths = (
@@ -3582,18 +3574,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69BA20DE2283E6F100A06438 /* View.swift in Sources */,
-				69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */,
-				69BA20D02283C13E00A06438 /* Unit.swift in Sources */,
-				69BA20E02283E72F00A06438 /* ViewController.swift in Sources */,
-				69BA20C92283BF2F00A06438 /* Operators.swift in Sources */,
-				69BA20D22283C1D000A06438 /* Reader.swift in Sources */,
-				69BA20E62283E78E00A06438 /* Program.swift in Sources */,
-				69BA20E82283E7A700A06438 /* StateMachine.swift in Sources */,
-				69BA20D72283C2A800A06438 /* Copyable.swift in Sources */,
-				69BA20E32283E75500A06438 /* EnvironmentType.swift in Sources */,
-				69BA20DA2283E67100A06438 /* Reader+MonadTransformer.swift in Sources */,
-				69BA20CB2283BFFC00A06438 /* Functions.swift in Sources */,
+				1F4993D722AF88E3006B1D6B /* Error.swift in Sources */,
+				1F4993CD22AF7FA4006B1D6B /* ViewController.swift in Sources */,
+				1F4993C722AF7C41006B1D6B /* Effect.swift in Sources */,
+				1F4993BA22AF76FF006B1D6B /* Reader.swift in Sources */,
+				1F4993D122AF87E6006B1D6B /* Functions.swift in Sources */,
+				1F4993D922AF8A0F006B1D6B /* Command.swift in Sources */,
+				1F4993B822AF76C0006B1D6B /* Program.swift in Sources */,
+				1F4993DC22AF8A65006B1D6B /* Rx+Riiid.swift in Sources */,
+				1F4993D522AF8814006B1D6B /* View.swift in Sources */,
+				1F49941122AF98E8006B1D6B /* UIViewController+Rx.swift in Sources */,
+				1F4993D222AF87E6006B1D6B /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

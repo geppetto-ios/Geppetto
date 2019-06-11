@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import RxSwiftExt
 
 public protocol EnvironmentType {
     
