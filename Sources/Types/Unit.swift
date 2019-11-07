@@ -6,4 +6,6 @@
 //  Copyright © 2019 rinndash. All rights reserved.
 //
 
-public struct Unit { }
+public struct Unit { 
+    public init() { }
+}
