@@ -32,28 +32,27 @@ public extension Program {
             .scan((Model.initial, initialCommand)) { model_command, message -> (Self.Model, Command) in
                 let (model, _) = model_command
                 return update(model: model, message: message)
-        }
+            }
+            .startWith((Model.initial, initialCommand))
     }
 }
 
 public extension Program {
     static func bind<V>(with view: V, environment: Environment) where V: View, V.Model == Model, V.Message == Message {
-        let modelProxy: BehaviorSubject<Model> = BehaviorSubject(value: Model.initial)
-        let commandProxy: BehaviorSubject<Cmd> = BehaviorSubject(value: initialCommand)
+        let messageProxy: PublishSubject<Message> = PublishSubject()
+        
+        let model_command$: Observable<(Model, Command)> = app(messageProxy)
+            .share(replay: 1, scope: .forever)
+        
+        let model$: Observable<Model> = model_command$.map { $0.0 }
+        let command$: Observable<Command> = model_command$.map { $0.1 }
         
         let message$: Observable<Message> = Observable.merge(
-            modelProxy.flatMap(view.run),
-            commandProxy.flatMap(environment.run)
+            model$.flatMapLatest(view.run),
+            command$.flatMap(environment.run)
         )
         
-        let model_command$: Observable<(Model, Cmd)> = app(message$)
-            .share(replay: 1, scope: .forever)            
-        
-        let modelDisposable = model_command$.map { $0.0 }.bind(to: modelProxy)
-        let cmdDisposable = model_command$.map { $0.1 }.bind(to: commandProxy)
-        
-        let disposables = Disposables.create(modelDisposable, cmdDisposable)
-        disposables.disposed(by: view.disposeBag)
+        message$.bind(to: messageProxy).disposed(by: view.disposeBag) 
     }
 }
 
