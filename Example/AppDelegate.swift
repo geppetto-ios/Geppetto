@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if 
+            let rootVC = window?.rootViewController,
+            let adderVC = rootVC as? AdderViewController {
+            Adder.bind(with: adderVC)
+        }
+        
         return true
     }
 
