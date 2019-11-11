@@ -9,7 +9,7 @@
 import RxSwift
 import RxSwiftExt
 
-public typealias Task<E, T> = Reader<E, Single<T>>
+public typealias Effect<E, T> = Reader<E, Single<T>>
 public typealias Cmd<E, T> = Reader<E, Observable<T>>
 
 public protocol ModelType {
@@ -27,7 +27,7 @@ public protocol Program {
 }
 
 public extension Program {
-    static var env: Task<Environment, Environment> {
+    static var env: Effect<Environment, Environment> {
         return Reader<Environment, Single<Environment>>(run: Single.just)
     }
 }
