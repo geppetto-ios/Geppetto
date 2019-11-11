@@ -122,6 +122,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		693672DF237916DE00565B59 /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Effect;
+			sourceTree = "<group>";
+		};
 		69BA20C72283BF2200A06438 /* Functional */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +216,7 @@
 			children = (
 				69BA20E42283E78200A06438 /* Program */,
 				69BA20E12283E74700A06438 /* Environment */,
+				693672DF237916DE00565B59 /* Effect */,
 				69BA20DC2283E6E900A06438 /* View */,
 				69BA20D82283E64B00A06438 /* MonadTransformers */,
 				69BA20D52283C29D00A06438 /* Util */,
