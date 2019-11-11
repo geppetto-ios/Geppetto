@@ -11,7 +11,13 @@ import Geppetto
 import RxSwift
 import RxSwiftExt
 
-enum PersistentAdder: BeginnerProgram {
+class PersistentAdderEnvironment: EnvironmentType {
+    static let shared: PersistentAdderEnvironment = PersistentAdderEnvironment()
+}
+
+enum PersistentAdder: Program {
+    typealias Environment = PersistentAdderEnvironment
+    
     enum Message {
         case updateLeftOperand(String?)
         case updateRightOperand(String?)
@@ -31,17 +37,21 @@ enum PersistentAdder: BeginnerProgram {
         }
     }
     
-    static func update(model: Model, message: Message) -> Model {
+    static var initialCommand: Command { 
+        return .none 
+    }
+    
+    static func update(model: Model, message: Message) -> (Model, Command) {
         switch message {
         case let .updateLeftOperand(left):
-            return model.copy {
+            return (model.copy {
                 $0.leftOperand = left.flatMap(Int.init)
-            }
+            }, .none)
             
         case let .updateRightOperand(right):
-            return model.copy {
+            return (model.copy {
                 $0.rightOperand = right.flatMap(Int.init)
-            }
+            }, .none)
         }
     }
     

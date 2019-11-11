@@ -26,7 +26,7 @@ class ExampleListViewController: UITableViewController {
         case .showPersistentAdder:
             if 
                 let vc = segue.destination as? PersistentAdderViewController {
-                PersistentAdder.bind(with: vc)
+                PersistentAdder.bind(with: vc, environment: .shared)
             }
         }
     }
