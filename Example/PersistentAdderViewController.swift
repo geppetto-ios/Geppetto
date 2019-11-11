@@ -12,6 +12,12 @@ import RxSwift
 import RxSwiftExt
 
 class PersistentAdderEnvironment: EnvironmentType {
+    let userDefaults: UserDefaults
+    
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
+    }
+    
     static let shared: PersistentAdderEnvironment = PersistentAdderEnvironment()
 }
 
