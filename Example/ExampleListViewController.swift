@@ -20,11 +20,14 @@ class ExampleListViewController: UITableViewController {
         case .showSimpleAdder:
             if 
                 let vc = segue.destination as? SimpleAdderViewController {
-                Adder.bind(with: vc)
+                SimpleAdder.bind(with: vc)
             }
             
         case .showPersistentAdder:
-            break
+            if 
+                let vc = segue.destination as? PersistentAdderViewController {
+                PersistentAdder.bind(with: vc)
+            }
         }
     }
 }

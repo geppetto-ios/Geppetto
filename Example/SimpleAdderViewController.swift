@@ -11,7 +11,7 @@ import Geppetto
 import RxSwift
 import RxSwiftExt
 
-enum Adder: BeginnerProgram {
+enum SimpleAdder: BeginnerProgram {
     enum Message {
         case updateLeftOperand(String?)
         case updateRightOperand(String?)
@@ -52,13 +52,13 @@ enum Adder: BeginnerProgram {
     }
 }
 
-extension Adder.Model {
+extension SimpleAdder.Model {
     var resultText: String? {
         return result?.description
     }
 }
 
-class SimpleAdderViewController: ViewController<Adder> {
+class SimpleAdderViewController: ViewController<SimpleAdder> {
     @IBOutlet weak var leftOperandTextField: UITextField!
     @IBOutlet weak var rightOperandTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
