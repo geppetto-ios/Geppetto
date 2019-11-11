@@ -58,7 +58,7 @@ extension Adder.Model {
     }
 }
 
-class AdderViewController: ViewController<Adder> {
+class SimpleAdderViewController: ViewController<Adder> {
     @IBOutlet weak var leftOperandTextField: UITextField!
     @IBOutlet weak var rightOperandTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
@@ -86,4 +86,3 @@ class AdderViewController: ViewController<Adder> {
             .disposed(by: disposeBag)
     }
 }
-
