@@ -27,6 +27,12 @@ public protocol Program {
 }
 
 public extension Program {
+    static var env: Task<Environment, Environment> {
+        return Reader<Environment, Single<Environment>>(run: Single.just)
+    }
+}
+
+public extension Program {
     static func app(_ message$: Observable<Message>) -> (Observable<(Model, Command)>) {
         return message$
             .scan((Model.initial, initialCommand)) { model_command, message -> (Self.Model, Command) in
