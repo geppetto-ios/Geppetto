@@ -9,6 +9,7 @@
 public protocol OptionalType {
     associatedtype Wrapped
     var value: Wrapped? { get }
+    func fold<T>(onSome f: @escaping (Wrapped) -> T, onNone g: @autoclosure () -> T) -> T
 }
 
 extension Optional: OptionalType {
@@ -18,6 +19,13 @@ extension Optional: OptionalType {
             return x
         case .none:
             return nil
+        }
+    }
+    
+    public func fold<T>(onSome f: @escaping (Wrapped) -> T, onNone g: @autoclosure () -> T) -> T {
+        switch self {
+        case let .some(x): return f(x)
+        case .none: return g()
         }
     }
 }

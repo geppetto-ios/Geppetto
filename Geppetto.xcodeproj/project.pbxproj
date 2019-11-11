@@ -15,6 +15,8 @@
 		4B61F06AE95858B6EC1DBEFD /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A900D44200DDB270E510D /* Pods_Example.framework */; };
 		6926B3592378F83E00B76761 /* PersistentAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6926B3582378F83E00B76761 /* PersistentAdderViewController.swift */; };
 		6926B35B237902C200B76761 /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6926B35A237902C200B76761 /* ExampleListViewController.swift */; };
+		693672E22379178C00565B59 /* Effect+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693672E12379178C00565B59 /* Effect+UserDefaults.swift */; };
+		693672E42379187200565B59 /* Effect+MonadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693672E32379187200565B59 /* Effect+MonadTransformer.swift */; };
 		696BD2E02373FF3C0071ABDA /* BeginnerProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696BD2DF2373FF3C0071ABDA /* BeginnerProgram.swift */; };
 		69BA20C92283BF2F00A06438 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20C82283BF2F00A06438 /* Operators.swift */; };
 		69BA20CB2283BFFC00A06438 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CA2283BFFC00A06438 /* Functions.swift */; };
@@ -22,7 +24,7 @@
 		69BA20D02283C13E00A06438 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CF2283C13E00A06438 /* Unit.swift */; };
 		69BA20D22283C1D000A06438 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D12283C1D000A06438 /* Reader.swift */; };
 		69BA20D72283C2A800A06438 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D62283C2A800A06438 /* Copyable.swift */; };
-		69BA20DA2283E67100A06438 /* Reader+MonadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */; };
+		69BA20DA2283E67100A06438 /* Command+MonadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D92283E67100A06438 /* Command+MonadTransformer.swift */; };
 		69BA20DE2283E6F100A06438 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20DD2283E6F100A06438 /* View.swift */; };
 		69BA20E02283E72F00A06438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20DF2283E72F00A06438 /* ViewController.swift */; };
 		69BA20E32283E75500A06438 /* EnvironmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E22283E75500A06438 /* EnvironmentType.swift */; };
@@ -53,6 +55,8 @@
 		419200EE6F679B389AC2A137 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6926B3582378F83E00B76761 /* PersistentAdderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentAdderViewController.swift; sourceTree = "<group>"; };
 		6926B35A237902C200B76761 /* ExampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListViewController.swift; sourceTree = "<group>"; };
+		693672E12379178C00565B59 /* Effect+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+UserDefaults.swift"; sourceTree = "<group>"; };
+		693672E32379187200565B59 /* Effect+MonadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+MonadTransformer.swift"; sourceTree = "<group>"; };
 		696BD2DF2373FF3C0071ABDA /* BeginnerProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerProgram.swift; sourceTree = "<group>"; };
 		69BA20C82283BF2F00A06438 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		69BA20CA2283BFFC00A06438 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -60,7 +64,7 @@
 		69BA20CF2283C13E00A06438 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		69BA20D12283C1D000A06438 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		69BA20D62283C2A800A06438 /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
-		69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reader+MonadTransformer.swift"; sourceTree = "<group>"; };
+		69BA20D92283E67100A06438 /* Command+MonadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Command+MonadTransformer.swift"; sourceTree = "<group>"; };
 		69BA20DD2283E6F100A06438 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		69BA20DF2283E72F00A06438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		69BA20E22283E75500A06438 /* EnvironmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentType.swift; sourceTree = "<group>"; };
@@ -125,8 +129,17 @@
 		693672DF237916DE00565B59 /* Effect */ = {
 			isa = PBXGroup;
 			children = (
+				693672E02379177A00565B59 /* UserDefaults */,
 			);
 			path = Effect;
+			sourceTree = "<group>";
+		};
+		693672E02379177A00565B59 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				693672E12379178C00565B59 /* Effect+UserDefaults.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		69BA20C72283BF2200A06438 /* Functional */ = {
@@ -159,7 +172,8 @@
 		69BA20D82283E64B00A06438 /* MonadTransformers */ = {
 			isa = PBXGroup;
 			children = (
-				69BA20D92283E67100A06438 /* Reader+MonadTransformer.swift */,
+				69BA20D92283E67100A06438 /* Command+MonadTransformer.swift */,
+				693672E32379187200565B59 /* Effect+MonadTransformer.swift */,
 			);
 			path = MonadTransformers;
 			sourceTree = "<group>";
@@ -441,16 +455,18 @@
 			files = (
 				69BA20DE2283E6F100A06438 /* View.swift in Sources */,
 				69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */,
+				693672E42379187200565B59 /* Effect+MonadTransformer.swift in Sources */,
 				69BA20D02283C13E00A06438 /* Unit.swift in Sources */,
 				69BA20E02283E72F00A06438 /* ViewController.swift in Sources */,
 				69BA20C92283BF2F00A06438 /* Operators.swift in Sources */,
 				696BD2E02373FF3C0071ABDA /* BeginnerProgram.swift in Sources */,
 				69BA20D22283C1D000A06438 /* Reader.swift in Sources */,
+				693672E22379178C00565B59 /* Effect+UserDefaults.swift in Sources */,
 				69BA20E62283E78E00A06438 /* Program.swift in Sources */,
 				69BA20E82283E7A700A06438 /* StateMachine.swift in Sources */,
 				69BA20D72283C2A800A06438 /* Copyable.swift in Sources */,
 				69BA20E32283E75500A06438 /* EnvironmentType.swift in Sources */,
-				69BA20DA2283E67100A06438 /* Reader+MonadTransformer.swift in Sources */,
+				69BA20DA2283E67100A06438 /* Command+MonadTransformer.swift in Sources */,
 				69BA20CB2283BFFC00A06438 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
