@@ -11,7 +11,7 @@ import Geppetto
 import RxSwift
 import RxSwiftExt
 
-class PersistentAdderEnvironment: EnvironmentType {
+class PersistentAdderEnvironment: EnvironmentType, HasUserDefaults {
     let userDefaults: UserDefaults
     
     init(userDefaults: UserDefaults = .standard) {
@@ -22,9 +22,15 @@ class PersistentAdderEnvironment: EnvironmentType {
 }
 
 enum PersistentAdder: Program {
+    enum UserDefaultKey: String {
+        case leftOperand
+        case rightOperand
+    }
+    
     typealias Environment = PersistentAdderEnvironment
     
     enum Message {
+        case updateInitialOperands(Int?, Int?)
         case updateLeftOperand(String?)
         case updateRightOperand(String?)
     }
@@ -44,20 +50,37 @@ enum PersistentAdder: Program {
     }
     
     static var initialCommand: Command { 
-        return .none 
+        return batch(
+            env.userDefaults.value(for: UserDefaultKey.leftOperand.rawValue, of: Int.self),
+            env.userDefaults.value(for: UserDefaultKey.rightOperand.rawValue, of: Int.self)
+        ).withMessage(Message.updateInitialOperands)
     }
     
     static func update(model: Model, message: Message) -> (Model, Command) {
         switch message {
-        case let .updateLeftOperand(left):
+        case let .updateInitialOperands(left, right):
             return (model.copy {
-                $0.leftOperand = left.flatMap(Int.init)
+                $0.leftOperand = left
+                $0.rightOperand = right
             }, .none)
             
-        case let .updateRightOperand(right):
-            return (model.copy {
-                $0.rightOperand = right.flatMap(Int.init)
-            }, .none)
+        case let .updateLeftOperand(x):
+            let value = x.flatMap(Int.init)
+            return (
+                model.copy { $0.leftOperand = value },
+                env.userDefaults
+                    .setValue(value, for: UserDefaultKey.leftOperand.rawValue)
+                    .withoutMessage()
+            )
+            
+        case let .updateRightOperand(x):
+            let value = x.flatMap(Int.init)
+            return (
+                model.copy { $0.rightOperand = value },
+                env.userDefaults
+                    .setValue(value, for: UserDefaultKey.rightOperand.rawValue)
+                    .withoutMessage()
+            )
         }
     }
     

@@ -13,17 +13,17 @@ public enum UserDefaultsEffectEffor: Error {
     case valueIsUnexpectedType(value: String, type: String)
 }
 
-protocol HasUserDefaults {
+public protocol HasUserDefaults {
     var userDefaults: UserDefaults { get }
 }
 
-extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element: HasUserDefaults {
+public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element: HasUserDefaults {
     var userDefaults: Reader<Env, Single<UserDefaults>> {
         return mapT { $0.userDefaults }
     }
 }
 
-extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == UserDefaults {
+public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == UserDefaults {
     func value(for key: String) -> Reader<Env, Single<Any?>> {
         return flatMapT { (userDefaults: UserDefaults) in
             return Reader<Env, Single<Any?>> { [unowned userDefaults] _ in
@@ -52,9 +52,9 @@ extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTr
         }  
     }
     
-    func setValue<T>(_ value: T, for key: String) -> Reader<Env, Single<T>> {
+    func setValue<T>(_ value: T?, for key: String) -> Reader<Env, Single<T?>> {
         return flatMapT { (userDefaults: UserDefaults) in
-            return Reader<Env, Single<T>> { [unowned userDefaults] _ in
+            return Reader<Env, Single<T?>> { [unowned userDefaults] _ in
                 return Single.create { single in
                     userDefaults.set(value, forKey: key)
                     single(.success(value))
