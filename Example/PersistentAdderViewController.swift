@@ -127,7 +127,6 @@ class PersistentAdderViewController: ViewController<PersistentAdder> {
         
         rx.updated
             .map { $0.leftOperandText }
-            .debug()
             .bind(to: leftOperandTextField.rx.text)
             .disposed(by: disposeBag)
         

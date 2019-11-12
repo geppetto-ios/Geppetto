@@ -14,6 +14,9 @@ public protocol View {
     
     var model$: ReplaySubject<Model> { get }
     var message$: PublishSubject<Message> { get }
+    
+    var didReady$: Single<Void> { get }  
+    
     var disposeBag: DisposeBag { get }
 }
 
