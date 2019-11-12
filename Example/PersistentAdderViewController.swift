@@ -91,10 +91,16 @@ enum PersistentAdder: Program {
     }
 }
 
-extension PersistentAdder.Model {
-    var resultText: String? {
-        return result?.description
-    }
+protocol PersistentAdderViewModel {
+    var leftOperandText: String? { get }
+    var rightOperandText: String? { get }
+    var resultText: String? { get }
+}
+
+extension PersistentAdder.Model: PersistentAdderViewModel {
+    var rightOperandText: String? { return rightOperand?.description }
+    var leftOperandText: String? { return leftOperand?.description }
+    var resultText: String? { return result?.description }
 }
 
 class PersistentAdderViewController: ViewController<PersistentAdder> {
@@ -117,6 +123,17 @@ class PersistentAdderViewController: ViewController<PersistentAdder> {
         
         input$
             .bind(to: rx.dispatch)
+            .disposed(by: disposeBag)
+        
+        rx.updated
+            .map { $0.leftOperandText }
+            .debug()
+            .bind(to: leftOperandTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        rx.updated
+            .map { $0.rightOperandText }
+            .bind(to: rightOperandTextField.rx.text)
             .disposed(by: disposeBag)
         
         rx.updated
