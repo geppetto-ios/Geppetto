@@ -9,7 +9,6 @@
 import RxSwift
 import RxSwiftExt
 
-public typealias Effect<E, T> = Reader<E, Single<T>>
 public typealias Cmd<E, T> = Reader<E, Observable<T>>
 
 public protocol ModelType {
