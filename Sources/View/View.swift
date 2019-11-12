@@ -12,7 +12,7 @@ public protocol View {
     associatedtype Model
     associatedtype Message
     
-    var model$: ReplaySubject<Model> { get }
+    var model$: PublishSubject<Model> { get }
     var message$: PublishSubject<Message> { get }
     
     var didReady$: Single<Void> { get }  
