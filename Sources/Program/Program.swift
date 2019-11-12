@@ -57,7 +57,11 @@ public extension Program {
             command$.flatMap(environment.run)
         )
         
-        message$.bind(to: messageProxy).disposed(by: view.disposeBag) 
+        view.didReady$
+            .asObservable()
+            .flatMap(const(message$))
+            .bind(to: messageProxy)
+            .disposed(by: view.disposeBag) 
     }
 }
 
