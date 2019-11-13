@@ -12,6 +12,7 @@ class ExampleListViewController: UITableViewController {
     enum SegueIdentifier: String {
         case showSimpleAdder
         case showPersistentAdder
+        case showNetworkingAdder
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -27,6 +28,12 @@ class ExampleListViewController: UITableViewController {
             if 
                 let vc = segue.destination as? PersistentAdderViewController {
                 PersistentAdder.bind(with: vc, environment: .shared)
+            }
+            
+        case .showNetworkingAdder:
+            if 
+                let vc = segue.destination as? NetworkingAdderViewController {
+                NetworkingAdder.bind(with: vc, environment: .shared)
             }
         }
     }
