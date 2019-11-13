@@ -11,75 +11,84 @@ import Geppetto
 import RxSwift
 import RxSwiftExt
 
-class NetworkingAdderEnvironment: EnvironmentType, HasUserDefaults {
-    let userDefaults: UserDefaults
+class NetworkingAdderEnvironment: EnvironmentType, HasURLSession {
+    let urlSession: URLSession
     
-    init(userDefaults: UserDefaults = .standard) {
-        self.userDefaults = userDefaults
+    init(urlSession: URLSession = .shared) {
+        self.urlSession = urlSession
     }
     
     static let shared: NetworkingAdderEnvironment = NetworkingAdderEnvironment()
 }
 
 enum NetworkingAdder: Program {
-    enum UserDefaultKey: String {
-        case leftOperand
-        case rightOperand
-    }
-    
     typealias Environment = NetworkingAdderEnvironment
     
     enum Message {
-        case updateInitialOperands(Int?, Int?)
         case updateLeftOperand(String?)
         case updateRightOperand(String?)
+        case makeRequest
+        case updateCalculationResult(Result<Int, Error>)
     }
     
     struct Model: ModelType, Copyable {
         var leftOperand: Int?
         var rightOperand: Int?
-        
-        var result: Int? { return leftOperand.flatMap { x in rightOperand.map { y in x + y } } }
+        var result: Int?
+        var isLoading: Bool
         
         static var initial: Model {
             return Model(
                 leftOperand: nil, 
-                rightOperand: nil
+                rightOperand: nil,
+                result: nil,
+                isLoading: false
             )
         }
     }
     
-    static var initialCommand: Command { 
-        return batch(
-            env.userDefaults.value(for: UserDefaultKey.leftOperand.rawValue, of: Int.self),
-            env.userDefaults.value(for: UserDefaultKey.rightOperand.rawValue, of: Int.self)
-        ).withMessage(Message.updateInitialOperands)
-    }
+    static var initialCommand: Command { return .none }
     
     static func update(model: Model, message: Message) -> (Model, Command) {
         switch message {
-        case let .updateInitialOperands(left, right):
-            return (model.copy {
-                $0.leftOperand = left
-                $0.rightOperand = right
-            }, .none)
-            
         case let .updateLeftOperand(x):
             let value = x.flatMap(Int.init)
             return (
                 model.copy { $0.leftOperand = value },
-                env.userDefaults
-                    .setValue(value, for: UserDefaultKey.leftOperand.rawValue)
-                    .withoutMessage()
+                .none
             )
             
         case let .updateRightOperand(x):
             let value = x.flatMap(Int.init)
             return (
                 model.copy { $0.rightOperand = value },
-                env.userDefaults
-                    .setValue(value, for: UserDefaultKey.rightOperand.rawValue)
-                    .withoutMessage()
+                .none
+            )
+            
+        case .makeRequest:
+            return (
+                model.copy {
+                    $0.result = nil
+                    $0.isLoading = true 
+                },
+                .none
+            )
+            
+        case let .updateCalculationResult(.success(value)):
+            return (
+                model.copy { 
+                    $0.result = value 
+                    $0.isLoading = false
+                },
+                .none
+            )
+            
+        case .updateCalculationResult(.failure):
+            return (
+                model.copy {  
+                    $0.isLoading = false
+                },
+                .none
             )
         }
     }
@@ -92,14 +101,10 @@ enum NetworkingAdder: Program {
 }
 
 protocol NetworkingAdderViewModel {
-    var leftOperandText: String? { get }
-    var rightOperandText: String? { get }
     var resultText: String? { get }
 }
 
 extension NetworkingAdder.Model: NetworkingAdderViewModel {
-    var rightOperandText: String? { return rightOperand?.description }
-    var leftOperandText: String? { return leftOperand?.description }
     var resultText: String? { return result?.description }
 }
 
@@ -123,16 +128,6 @@ class NetworkingAdderViewController: ViewController<NetworkingAdder> {
         
         input$
             .bind(to: rx.dispatch)
-            .disposed(by: disposeBag)
-        
-        rx.updated
-            .map { $0.leftOperandText }
-            .bind(to: leftOperandTextField.rx.text)
-            .disposed(by: disposeBag)
-        
-        rx.updated
-            .map { $0.rightOperandText }
-            .bind(to: rightOperandTextField.rx.text)
             .disposed(by: disposeBag)
         
         rx.updated
