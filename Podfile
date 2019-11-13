@@ -1,4 +1,5 @@
 use_frameworks!
+platform :ios, '12.2'
 
 def rx_dependencies
 	pod 'RxSwift', '~> 5'
