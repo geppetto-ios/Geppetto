@@ -19,6 +19,7 @@
 		693672E42379187200565B59 /* Effect+MonadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693672E32379187200565B59 /* Effect+MonadTransformer.swift */; };
 		693672E623791F7700565B59 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693672E523791F7700565B59 /* Effect.swift */; };
 		696BD2E02373FF3C0071ABDA /* BeginnerProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696BD2DF2373FF3C0071ABDA /* BeginnerProgram.swift */; };
+		69A2A4D1237BFE4900873A19 /* NetworkingAdderViewController copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A2A4D0237BFE4900873A19 /* NetworkingAdderViewController copy.swift */; };
 		69BA20C92283BF2F00A06438 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20C82283BF2F00A06438 /* Operators.swift */; };
 		69BA20CB2283BFFC00A06438 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CA2283BFFC00A06438 /* Functions.swift */; };
 		69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20CD2283C08B00A06438 /* OptionalType.swift */; };
@@ -60,6 +61,7 @@
 		693672E32379187200565B59 /* Effect+MonadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+MonadTransformer.swift"; sourceTree = "<group>"; };
 		693672E523791F7700565B59 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		696BD2DF2373FF3C0071ABDA /* BeginnerProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerProgram.swift; sourceTree = "<group>"; };
+		69A2A4D0237BFE4900873A19 /* NetworkingAdderViewController copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkingAdderViewController copy.swift"; sourceTree = "<group>"; };
 		69BA20C82283BF2F00A06438 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		69BA20CA2283BFFC00A06438 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		69BA20CD2283C08B00A06438 /* OptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				6926B35A237902C200B76761 /* ExampleListViewController.swift */,
 				1F3F72C122AE1E110055620C /* SimpleAdderViewController.swift */,
 				6926B3582378F83E00B76761 /* PersistentAdderViewController.swift */,
+				69A2A4D0237BFE4900873A19 /* NetworkingAdderViewController copy.swift */,
 				1F3F72C322AE1E110055620C /* Main.storyboard */,
 				1F3F72C622AE1E110055620C /* Assets.xcassets */,
 				1F3F72C822AE1E110055620C /* LaunchScreen.storyboard */,
@@ -434,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A2A4D1237BFE4900873A19 /* NetworkingAdderViewController copy.swift in Sources */,
 				6926B3592378F83E00B76761 /* PersistentAdderViewController.swift in Sources */,
 				6926B35B237902C200B76761 /* ExampleListViewController.swift in Sources */,
 				1F3F72C222AE1E110055620C /* SimpleAdderViewController.swift in Sources */,

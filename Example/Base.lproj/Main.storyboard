@@ -147,6 +147,26 @@
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="showPersistentAdder" id="XXA-vl-1qu"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="SjG-In-xcU" style="IBUITableViewCellStyleDefault" id="WSz-CS-4p7">
+                                        <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WSz-CS-4p7" id="mpI-bF-fMW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Networking Adder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SjG-In-xcU">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cGe-hm-EKn" kind="show" identifier="showNetworkingAdder" id="aeD-88-1v1"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -228,6 +248,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBE-z5-7Jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1054" y="545"/>
+        </scene>
+        <!--Networking Adder View Controller-->
+        <scene sceneID="oVd-qJ-Jod">
+            <objects>
+                <viewController id="cGe-hm-EKn" customClass="NetworkingAdderViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8si-PH-WU2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Poq-gO-NxK">
+                                <rect key="frame" x="20" y="423" width="374" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVf-Y9-VyZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="94.5" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vho-4v-USX">
+                                        <rect key="frame" x="111.5" y="0.0" width="11" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sSY-Am-ih6">
+                                        <rect key="frame" x="139.5" y="0.0" width="95" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKe-Pv-ysq">
+                                        <rect key="frame" x="251.5" y="0.0" width="11" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BI-Hn-syD">
+                                        <rect key="frame" x="279.5" y="0.0" width="94.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4BI-Hn-syD" firstAttribute="width" secondItem="AVf-Y9-VyZ" secondAttribute="width" id="IaR-SM-t4k"/>
+                                    <constraint firstItem="sSY-Am-ih6" firstAttribute="width" secondItem="AVf-Y9-VyZ" secondAttribute="width" id="dWl-Qi-Zwy"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Poq-gO-NxK" firstAttribute="leading" secondItem="qdm-c3-fAN" secondAttribute="leading" constant="20" id="T4F-ow-VMv"/>
+                            <constraint firstItem="Poq-gO-NxK" firstAttribute="centerX" secondItem="8si-PH-WU2" secondAttribute="centerX" id="VWG-qc-tdh"/>
+                            <constraint firstItem="Poq-gO-NxK" firstAttribute="centerY" secondItem="8si-PH-WU2" secondAttribute="centerY" id="axR-A3-7Ff"/>
+                            <constraint firstItem="Poq-gO-NxK" firstAttribute="trailing" secondItem="qdm-c3-fAN" secondAttribute="trailing" constant="-20" id="zIz-Dq-FuE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qdm-c3-fAN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MDE-JN-eVp"/>
+                    <connections>
+                        <outlet property="leftOperandTextField" destination="AVf-Y9-VyZ" id="y04-Tq-z4t"/>
+                        <outlet property="resultLabel" destination="4BI-Hn-syD" id="umy-c0-zwu"/>
+                        <outlet property="rightOperandTextField" destination="sSY-Am-ih6" id="WuV-cB-Vdf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fam-zF-k6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="-130"/>
         </scene>
     </scenes>
 </document>
