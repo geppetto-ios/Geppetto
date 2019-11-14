@@ -109,6 +109,7 @@ enum NetworkingAdder: Program {
 
 protocol NetworkingAdderViewModel {
     var resultText: String? { get }
+    var isLoading: Bool { get }
 }
 
 extension NetworkingAdder.Model: NetworkingAdderViewModel {
@@ -119,6 +120,12 @@ class NetworkingAdderViewController: ViewController<NetworkingAdder> {
     @IBOutlet weak var leftOperandTextField: UITextField!
     @IBOutlet weak var rightOperandTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    override func style() {
+        super.style()
+        loadingIndicator.hidesWhenStopped = true
+    }
     
     override func behavior() {
         super.behavior()
@@ -140,6 +147,11 @@ class NetworkingAdderViewController: ViewController<NetworkingAdder> {
         rx.updated
             .map { $0.resultText }
             .bind(to: resultLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        rx.updated
+            .map { $0.isLoading }
+            .bind(to: loadingIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
     }
 }
