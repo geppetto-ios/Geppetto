@@ -28,7 +28,7 @@ enum NetworkingAdder: Program {
         case updateLeftOperand(String?)
         case updateRightOperand(String?)
         case makeRequest
-        case updateCalculationResult(Result<Int, Error>)
+        case updateCalculationResult(Int?)
     }
     
     struct Model: ModelType, Copyable {
@@ -36,6 +36,10 @@ enum NetworkingAdder: Program {
         var rightOperand: Int?
         var result: Int?
         var isLoading: Bool
+        
+        var canMakeRequest: Bool {
+            return leftOperand != nil && rightOperand != nil
+        }
         
         static var initial: Model {
             return Model(
@@ -52,40 +56,43 @@ enum NetworkingAdder: Program {
     static func update(model: Model, message: Message) -> (Model, Command) {
         switch message {
         case let .updateLeftOperand(x):
-            let value = x.flatMap(Int.init)
-            return (
-                model.copy { $0.leftOperand = value },
-                .none
-            )
+            let newModel = model.copy { $0.leftOperand = x.flatMap(Int.init) }
+            
+            return newModel.canMakeRequest
+                ? update(model: newModel, message: .makeRequest)
+                : (newModel, .none)
             
         case let .updateRightOperand(x):
-            let value = x.flatMap(Int.init)
-            return (
-                model.copy { $0.rightOperand = value },
-                .none
-            )
+            let newModel = model.copy { $0.rightOperand = x.flatMap(Int.init) }
+            
+            return newModel.canMakeRequest
+                ? update(model: newModel, message: .makeRequest)
+                : (newModel, .none)
             
         case .makeRequest:
+            guard 
+                let left = model.leftOperand,
+                let right = model.rightOperand,
+                let url = URL(string: "https://api.mathjs.org/v4/?expr=\(left)%2B\(right)")
+                else { return (model, .none) }
+            
+            let request = URLRequest(url: url)
+            
             return (
                 model.copy {
                     $0.result = nil
                     $0.isLoading = true 
                 },
-                .none
+                env.urlSession
+                    .data(request: request)
+                    .mapT { String(data: $0, encoding: .utf8).flatMap(Int.init) }
+                    .withMessage(Message.updateCalculationResult)
             )
             
-        case let .updateCalculationResult(.success(value)):
+        case let .updateCalculationResult(value):
             return (
                 model.copy { 
                     $0.result = value 
-                    $0.isLoading = false
-                },
-                .none
-            )
-            
-        case .updateCalculationResult(.failure):
-            return (
-                model.copy {  
                     $0.isLoading = false
                 },
                 .none

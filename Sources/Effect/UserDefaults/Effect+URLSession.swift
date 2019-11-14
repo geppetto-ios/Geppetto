@@ -8,17 +8,22 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 public protocol HasURLSession {
     var urlSession: URLSession { get }
 }
 
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element: HasURLSession {
-    var urlSession: Reader<Env, Single<URLSession>> {
+    var urlSession: Effect<Env, URLSession> {
         return mapT { $0.urlSession }
     }
 }
 
-public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == UserDefaults {
-    
+public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == URLSession {
+    func data(request: URLRequest) -> Effect<Env, Data> {
+        return flatMapT { (session: URLSession) -> Effect<Env, Data> in 
+            return Effect<Env, Data>(run: const(session.rx.data(request: request).asSingle()))
+        }
+    }
 }
