@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E6349A69EDCB98777D26415 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9122258C5FA9FB3242066A1C /* Pods_Example.framework */; };
 		1F3F72C022AE1E110055620C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F72BF22AE1E110055620C /* AppDelegate.swift */; };
 		1F3F72C222AE1E110055620C /* SimpleAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F72C122AE1E110055620C /* SimpleAdderViewController.swift */; };
 		1F3F72C522AE1E110055620C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F72C322AE1E110055620C /* Main.storyboard */; };
 		1F3F72C722AE1E110055620C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F72C622AE1E110055620C /* Assets.xcassets */; };
 		1F3F72CA22AE1E110055620C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F72C822AE1E110055620C /* LaunchScreen.storyboard */; };
-		4B61F06AE95858B6EC1DBEFD /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A900D44200DDB270E510D /* Pods_Example.framework */; };
+		25A5D63E36465849264DD9F5 /* Pods_Geppetto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C611B8D5F26B665AA70C1D9A /* Pods_Geppetto.framework */; };
 		6926B3592378F83E00B76761 /* PersistentAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6926B3582378F83E00B76761 /* PersistentAdderViewController.swift */; };
 		6926B35B237902C200B76761 /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6926B35A237902C200B76761 /* ExampleListViewController.swift */; };
 		693672E22379178C00565B59 /* Effect+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693672E12379178C00565B59 /* Effect+UserDefaults.swift */; };
@@ -34,7 +35,6 @@
 		69BA20E62283E78E00A06438 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E52283E78E00A06438 /* Program.swift */; };
 		69BA20E82283E7A700A06438 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E72283E7A700A06438 /* StateMachine.swift */; };
 		69E96219227FF0BF00072369 /* Geppetto.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E96217227FF0BF00072369 /* Geppetto.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7ED82C50378DE8DBAC3A38FF /* Pods_Geppetto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F913D48F054A8BF12E0204C6 /* Pods_Geppetto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,6 @@
 		1F3F72C622AE1E110055620C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F3F72C922AE1E110055620C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F3F72CB22AE1E110055620C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		419200EE6F679B389AC2A137 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6926B3582378F83E00B76761 /* PersistentAdderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentAdderViewController.swift; sourceTree = "<group>"; };
 		6926B35A237902C200B76761 /* ExampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListViewController.swift; sourceTree = "<group>"; };
 		693672E12379178C00565B59 /* Effect+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+UserDefaults.swift"; sourceTree = "<group>"; };
@@ -79,11 +78,12 @@
 		69E96214227FF0BF00072369 /* Geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E96217227FF0BF00072369 /* Geppetto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geppetto.h; sourceTree = "<group>"; };
 		69E96218227FF0BF00072369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77EC7032185D8A43843597C4 /* Pods-Geppetto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geppetto.release.xcconfig"; path = "Target Support Files/Pods-Geppetto/Pods-Geppetto.release.xcconfig"; sourceTree = "<group>"; };
-		840A900D44200DDB270E510D /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA28949E211E13CDC792AFE9 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
-		F913D48F054A8BF12E0204C6 /* Pods_Geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC4B68A4B71703443C5C683B /* Pods-Geppetto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geppetto.debug.xcconfig"; path = "Target Support Files/Pods-Geppetto/Pods-Geppetto.debug.xcconfig"; sourceTree = "<group>"; };
+		9122258C5FA9FB3242066A1C /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B529F7131EFFE731F12D874A /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C611B8D5F26B665AA70C1D9A /* Pods_Geppetto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geppetto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF9484392010D3D9A81285F6 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		F5EF30B6095BEE7991E1A93B /* Pods-Geppetto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geppetto.debug.xcconfig"; path = "Target Support Files/Pods-Geppetto/Pods-Geppetto.debug.xcconfig"; sourceTree = "<group>"; };
+		FECDA95128C70A1DF771AABB /* Pods-Geppetto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geppetto.release.xcconfig"; path = "Target Support Files/Pods-Geppetto/Pods-Geppetto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B61F06AE95858B6EC1DBEFD /* Pods_Example.framework in Frameworks */,
+				1E6349A69EDCB98777D26415 /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ED82C50378DE8DBAC3A38FF /* Pods_Geppetto.framework in Frameworks */,
+				25A5D63E36465849264DD9F5 /* Pods_Geppetto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,13 +122,22 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		1F7BA6863E267E560D4BE1DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9122258C5FA9FB3242066A1C /* Pods_Example.framework */,
+				C611B8D5F26B665AA70C1D9A /* Pods_Geppetto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		55952B61551FB26124E8ACE9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FC4B68A4B71703443C5C683B /* Pods-Geppetto.debug.xcconfig */,
-				77EC7032185D8A43843597C4 /* Pods-Geppetto.release.xcconfig */,
-				419200EE6F679B389AC2A137 /* Pods-Example.debug.xcconfig */,
-				AA28949E211E13CDC792AFE9 /* Pods-Example.release.xcconfig */,
+				B529F7131EFFE731F12D874A /* Pods-Example.debug.xcconfig */,
+				EF9484392010D3D9A81285F6 /* Pods-Example.release.xcconfig */,
+				F5EF30B6095BEE7991E1A93B /* Pods-Geppetto.debug.xcconfig */,
+				FECDA95128C70A1DF771AABB /* Pods-Geppetto.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -221,7 +230,7 @@
 				1F3F72BE22AE1E110055620C /* Example */,
 				69E96215227FF0BF00072369 /* Products */,
 				55952B61551FB26124E8ACE9 /* Pods */,
-				D63A4C34B8A6A8D49CE4F05E /* Frameworks */,
+				1F7BA6863E267E560D4BE1DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,15 +260,6 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		D63A4C34B8A6A8D49CE4F05E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F913D48F054A8BF12E0204C6 /* Pods_Geppetto.framework */,
-				840A900D44200DDB270E510D /* Pods_Example.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -278,11 +278,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F3F72CE22AE1E110055620C /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				AF960888C9B36D6A9D1BE302 /* [CP] Check Pods Manifest.lock */,
+				6D8800360267D0ED6C725BF2 /* [CP] Check Pods Manifest.lock */,
 				1F3F72B922AE1E100055620C /* Sources */,
 				1F3F72BA22AE1E100055620C /* Frameworks */,
 				1F3F72BB22AE1E100055620C /* Resources */,
-				15587F9D32CDF42D23DB566F /* [CP] Embed Pods Frameworks */,
+				7518D8A263261AE35D786BC9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -298,7 +298,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69E9621C227FF0BF00072369 /* Build configuration list for PBXNativeTarget "Geppetto" */;
 			buildPhases = (
-				625A2BE0492929D35F9583D2 /* [CP] Check Pods Manifest.lock */,
+				3E10EE226F466E9D76EF5C0D /* [CP] Check Pods Manifest.lock */,
 				69E9620F227FF0BF00072369 /* Headers */,
 				69E96210227FF0BF00072369 /* Sources */,
 				69E96211227FF0BF00072369 /* Frameworks */,
@@ -372,24 +372,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		15587F9D32CDF42D23DB566F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		625A2BE0492929D35F9583D2 /* [CP] Check Pods Manifest.lock */ = {
+		3E10EE226F466E9D76EF5C0D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -411,7 +394,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AF960888C9B36D6A9D1BE302 /* [CP] Check Pods Manifest.lock */ = {
+		6D8800360267D0ED6C725BF2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -431,6 +414,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7518D8A263261AE35D786BC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -504,7 +504,7 @@
 /* Begin XCBuildConfiguration section */
 		1F3F72CC22AE1E110055620C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 419200EE6F679B389AC2A137 /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = B529F7131EFFE731F12D874A /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -523,7 +523,7 @@
 		};
 		1F3F72CD22AE1E110055620C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA28949E211E13CDC792AFE9 /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = EF9484392010D3D9A81285F6 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -664,7 +664,7 @@
 		};
 		69E9621D227FF0BF00072369 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC4B68A4B71703443C5C683B /* Pods-Geppetto.debug.xcconfig */;
+			baseConfigurationReference = F5EF30B6095BEE7991E1A93B /* Pods-Geppetto.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -691,7 +691,7 @@
 		};
 		69E9621E227FF0BF00072369 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77EC7032185D8A43843597C4 /* Pods-Geppetto.release.xcconfig */;
+			baseConfigurationReference = FECDA95128C70A1DF771AABB /* Pods-Geppetto.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
