@@ -11,14 +11,20 @@ import Geppetto
 import RxSwift
 import RxSwiftExt
 
-class NetworkingAdderEnvironment: EnvironmentType, HasURLSession {
+enum NetworkingAdderError: Error {
+    case couldNotFindResult
+}
+
+class NetworkingAdderEnvironment: EnvironmentType, HasURLSession, HasUIApplication {
     let urlSession: URLSession
+    let application: UIApplication
     
-    init(urlSession: URLSession = .shared) {
+    init(application: UIApplication = .shared, urlSession: URLSession = .shared) {
+        self.application = application
         self.urlSession = urlSession
     }
     
-    static let shared: NetworkingAdderEnvironment = NetworkingAdderEnvironment()
+    static var shared: NetworkingAdderEnvironment = NetworkingAdderEnvironment() 
 }
 
 enum NetworkingAdder: Program {
@@ -28,7 +34,7 @@ enum NetworkingAdder: Program {
         case updateLeftOperand(String?)
         case updateRightOperand(String?)
         case makeRequest
-        case updateCalculationResult(Int?)
+        case updateCalculationResult(Result<Int, NetworkingAdderError>)
     }
     
     struct Model: ModelType, Copyable {
@@ -85,17 +91,33 @@ enum NetworkingAdder: Program {
                 },
                 env.urlSession
                     .data(request: request)
-                    .mapT { String(data: $0, encoding: .utf8).flatMap(Int.init) }
+                    .mapT { 
+                        String(data: $0, encoding: .utf8)
+                            .flatMap(Int.init)
+                            .fold(
+                                onSome: Result<Int, NetworkingAdderError>.success, 
+                                onNone: Result<Int, NetworkingAdderError>.failure(NetworkingAdderError.couldNotFindResult)
+                            )
+                    }
                     .withMessage(Message.updateCalculationResult)
             )
             
-        case let .updateCalculationResult(value):
+        case let .updateCalculationResult(.success(value)):
             return (
                 model.copy { 
                     $0.result = value 
                     $0.isLoading = false
                 },
                 .none
+            )
+            
+        case let .updateCalculationResult(.failure(error)):
+            return (
+                model.copy {  
+                    $0.isLoading = false
+                },
+                env.alert(error: error)
+                    .withoutMessage()
             )
         }
     }
