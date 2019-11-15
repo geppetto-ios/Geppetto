@@ -24,10 +24,6 @@ class NetworkingAdderEnvironment: EnvironmentType, HasURLSession, HasUIApplicati
 }
 
 enum NetworkingAdder: Program, ErrorHandler {
-    static func handleError(_ error: Error) -> Command {
-        return env.alert(error: error).withoutMessage()
-    }
-    
     typealias Environment = NetworkingAdderEnvironment
     
     enum Message {
@@ -105,6 +101,13 @@ enum NetworkingAdder: Program, ErrorHandler {
                 .none
             )
         }
+    }
+    
+    static func handleError(_ error: Error, model: Model) -> (Model, Command) {
+        return (
+            model.copy { $0.isLoading = false }, 
+            env.alert(error: error).withoutMessage()
+        )
     }
     
     typealias ViewModel = String?
