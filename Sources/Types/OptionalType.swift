@@ -6,6 +6,8 @@
 //  Copyright © 2019 rinndash. All rights reserved.
 //
 
+import RxSwift
+
 public protocol OptionalType {
     associatedtype Wrapped
     var value: Wrapped? { get }
@@ -26,6 +28,21 @@ extension Optional: OptionalType {
         switch self {
         case let .some(x): return f(x)
         case .none: return g()
+        }
+    }
+}
+
+struct ExpectedNotNilButNilError: Error {
+    
+}
+
+public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element: OptionalType {
+    var rejectNil: Effect<Env, Value.Element.Wrapped> {
+        return map { optional -> Single<Value.Element.Wrapped> in
+            return optional.primitiveSequence.flatMap {
+                $0.fold(onSome: Single<Value.Element.Wrapped>.just, 
+                        onNone: Single<Value.Element.Wrapped>.error(ExpectedNotNilButNilError()))
+            }
         }
     }
 }

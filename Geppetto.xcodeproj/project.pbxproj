@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		693672E42379187200565B59 /* Effect+MonadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693672E32379187200565B59 /* Effect+MonadTransformer.swift */; };
 		693672E623791F7700565B59 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693672E523791F7700565B59 /* Effect.swift */; };
 		696BD2E02373FF3C0071ABDA /* BeginnerProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696BD2DF2373FF3C0071ABDA /* BeginnerProgram.swift */; };
+		698F0F73237E8C76003E67C1 /* Effect+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698F0F72237E8C76003E67C1 /* Effect+UIApplication.swift */; };
+		698F0F75237E8E7C003E67C1 /* UIViewController+Geppetto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698F0F74237E8E7C003E67C1 /* UIViewController+Geppetto.swift */; };
 		69A2A4D1237BFE4900873A19 /* NetworkingAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A2A4D0237BFE4900873A19 /* NetworkingAdderViewController.swift */; };
 		69A2A4D3237BFF9600873A19 /* Effect+URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A2A4D2237BFF9600873A19 /* Effect+URLSession.swift */; };
 		69BA20C92283BF2F00A06438 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20C82283BF2F00A06438 /* Operators.swift */; };
@@ -61,6 +63,8 @@
 		693672E32379187200565B59 /* Effect+MonadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+MonadTransformer.swift"; sourceTree = "<group>"; };
 		693672E523791F7700565B59 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		696BD2DF2373FF3C0071ABDA /* BeginnerProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerProgram.swift; sourceTree = "<group>"; };
+		698F0F72237E8C76003E67C1 /* Effect+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+UIApplication.swift"; sourceTree = "<group>"; };
+		698F0F74237E8E7C003E67C1 /* UIViewController+Geppetto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Geppetto.swift"; sourceTree = "<group>"; };
 		69A2A4D0237BFE4900873A19 /* NetworkingAdderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAdderViewController.swift; sourceTree = "<group>"; };
 		69A2A4D2237BFF9600873A19 /* Effect+URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+URLSession.swift"; sourceTree = "<group>"; };
 		69BA20C82283BF2F00A06438 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -145,8 +149,10 @@
 		693672DF237916DE00565B59 /* Effect */ = {
 			isa = PBXGroup;
 			children = (
-				693672E523791F7700565B59 /* Effect.swift */,
+				698F0F71237E8C68003E67C1 /* UIApplication */,
+				698F0F70237E8C50003E67C1 /* URLSession */,
 				693672E02379177A00565B59 /* UserDefaults */,
+				693672E523791F7700565B59 /* Effect.swift */,
 			);
 			path = Effect;
 			sourceTree = "<group>";
@@ -155,9 +161,25 @@
 			isa = PBXGroup;
 			children = (
 				693672E12379178C00565B59 /* Effect+UserDefaults.swift */,
-				69A2A4D2237BFF9600873A19 /* Effect+URLSession.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		698F0F70237E8C50003E67C1 /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				69A2A4D2237BFF9600873A19 /* Effect+URLSession.swift */,
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		698F0F71237E8C68003E67C1 /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				698F0F72237E8C76003E67C1 /* Effect+UIApplication.swift */,
+				698F0F74237E8E7C003E67C1 /* UIViewController+Geppetto.swift */,
+			);
+			path = UIApplication;
 			sourceTree = "<group>";
 		};
 		69BA20C72283BF2200A06438 /* Functional */ = {
@@ -463,11 +485,13 @@
 				69BA20D22283C1D000A06438 /* Reader.swift in Sources */,
 				693672E22379178C00565B59 /* Effect+UserDefaults.swift in Sources */,
 				69BA20E62283E78E00A06438 /* Program.swift in Sources */,
+				698F0F75237E8E7C003E67C1 /* UIViewController+Geppetto.swift in Sources */,
 				69BA20E82283E7A700A06438 /* StateMachine.swift in Sources */,
 				69BA20D72283C2A800A06438 /* Copyable.swift in Sources */,
 				69BA20E32283E75500A06438 /* EnvironmentType.swift in Sources */,
 				69A2A4D3237BFF9600873A19 /* Effect+URLSession.swift in Sources */,
 				69BA20DA2283E67100A06438 /* Command+MonadTransformer.swift in Sources */,
+				698F0F73237E8C76003E67C1 /* Effect+UIApplication.swift in Sources */,
 				69BA20CB2283BFFC00A06438 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
