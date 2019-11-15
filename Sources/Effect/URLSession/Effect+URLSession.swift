@@ -23,9 +23,11 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == URLSession {
     func data(request: URLRequest) -> Effect<Env, Data> {
         return flatMapT { (session: URLSession) -> Effect<Env, Data> in 
-            return Effect<Env, Data>(run: const(session.rx.data(request: request)
-                .observeOn(MainScheduler.instance)
-                .asSingle())
+            Effect<Env, Data>(run: const(
+                session.rx.data(request: request)
+                    .observeOn(MainScheduler.instance)
+                    .asSingle()
+                )
             )
         }
     }

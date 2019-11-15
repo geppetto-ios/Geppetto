@@ -32,16 +32,14 @@ extension Optional: OptionalType {
     }
 }
 
-struct ExpectedNotNilButNilError: Error {
-    
-}
+struct ExpectedNotNilButNilError: Error { }
 
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element: OptionalType {
-    var rejectNil: Effect<Env, Value.Element.Wrapped> {
-        return map { optional -> Single<Value.Element.Wrapped> in
-            return optional.primitiveSequence.flatMap {
-                $0.fold(onSome: Single<Value.Element.Wrapped>.just, 
-                        onNone: Single<Value.Element.Wrapped>.error(ExpectedNotNilButNilError()))
+    var rejectNil: Reader<Env, Single<Value.Element.Wrapped>> {
+        return map { $0.flatMap { 
+            return $0.fold(
+            onSome: Single<Value.Element.Wrapped>.just,
+            onNone: Single<Value.Element.Wrapped>.error(ExpectedNotNilButNilError()))
             }
         }
     }
