@@ -11,10 +11,6 @@ import Geppetto
 import RxSwift
 import RxSwiftExt
 
-enum NetworkingAdderError: Error {
-    case couldNotFindResult
-}
-
 class NetworkingAdderEnvironment: EnvironmentType, HasURLSession, HasUIApplication {
     let urlSession: URLSession
     let application: UIApplication
@@ -34,7 +30,7 @@ enum NetworkingAdder: Program {
         case updateLeftOperand(String?)
         case updateRightOperand(String?)
         case makeRequest
-        case updateCalculationResult(Result<Int, NetworkingAdderError>)
+        case updateCalculationResult(Int)
     }
     
     struct Model: ModelType, Copyable {
@@ -91,33 +87,18 @@ enum NetworkingAdder: Program {
                 },
                 env.urlSession
                     .data(request: request)
-                    .mapT { 
-                        String(data: $0, encoding: .utf8)
-                            .flatMap(Int.init)
-                            .fold(
-                                onSome: Result<Int, NetworkingAdderError>.success, 
-                                onNone: Result<Int, NetworkingAdderError>.failure(NetworkingAdderError.couldNotFindResult)
-                            )
-                    }
+                    .mapT {  String(data: $0, encoding: .utf8).flatMap(Int.init) }
+                    .rejectNil
                     .withMessage(Message.updateCalculationResult)
             )
             
-        case let .updateCalculationResult(.success(value)):
+        case let .updateCalculationResult(value):
             return (
                 model.copy { 
                     $0.result = value 
                     $0.isLoading = false
                 },
                 .none
-            )
-            
-        case let .updateCalculationResult(.failure(error)):
-            return (
-                model.copy {  
-                    $0.isLoading = false
-                },
-                env.alert(error: error)
-                    .withoutMessage()
             )
         }
     }
