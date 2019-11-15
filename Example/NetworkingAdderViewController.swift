@@ -23,7 +23,11 @@ class NetworkingAdderEnvironment: EnvironmentType, HasURLSession, HasUIApplicati
     static var shared: NetworkingAdderEnvironment = NetworkingAdderEnvironment() 
 }
 
-enum NetworkingAdder: Program {
+enum NetworkingAdder: Program, ErrorHandler {
+    static func handleError(_ error: Error) -> Command {
+        return env.alert(error: error).withoutMessage()
+    }
+    
     typealias Environment = NetworkingAdderEnvironment
     
     enum Message {
