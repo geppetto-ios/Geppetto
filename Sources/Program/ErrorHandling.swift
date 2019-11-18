@@ -11,7 +11,7 @@ import RxSwift
 import RxSwiftExt
 
 public protocol RecoverableModel: ModelType {
-    static func recover(from error: Error, with model: Self) -> Self
+    func recover(from error: Error) -> Self
 }
 
 public protocol ErrorHandlingProgram: Program where Self.Model: RecoverableModel {
@@ -37,7 +37,7 @@ public extension ErrorHandlingProgram {
                     return Observable.just((nil, x))
                 case let .error(error):
                     let effect = handleError(error)
-                    let newModel = Model.recover(from: error, with: model)
+                    let newModel = model.recover(from: error)
                     return effect.run(environment).asObservable().map { _ in (newModel, nil) }
                 case .completed:
                     return Observable.just((nil, nil))

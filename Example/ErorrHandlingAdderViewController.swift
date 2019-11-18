@@ -52,10 +52,8 @@ enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
             )
         }
         
-        static func recover(from error: Error, with model: ErrorHandlingAdder.Model) -> ErrorHandlingAdder.Model {
-            return model.copy {
-                $0.isLoading = false
-            }
+        func recover(from error: Error) -> Model {
+            return copy { $0.isLoading = false }
         }
     }
     
