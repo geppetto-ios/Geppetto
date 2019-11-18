@@ -43,7 +43,7 @@ public extension Program {
 }
 
 public extension Program {
-    static func bind<V>(with view: V, environment: Environment) where V: View, V.Model == Model, V.Message == Message {
+    static func bind<V>(with view: V, environment: Environment) where V: ViewType, V.Model == Model, V.Message == Message {
         let messageProxy: PublishSubject<Message> = PublishSubject()
         
         let model_command$: Observable<(Model, Command)> = app(messageProxy)

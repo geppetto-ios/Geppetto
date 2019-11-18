@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-open class ViewController<P: Program>: UIViewController, View {
+open class ViewController<P: Program>: UIViewController, ViewType {
     public let model$: PublishSubject<P.Model> = PublishSubject()
     public let message$: PublishSubject<P.Message> = PublishSubject()
     

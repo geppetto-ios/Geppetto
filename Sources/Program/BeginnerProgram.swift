@@ -19,7 +19,7 @@ public protocol HasUI {
 public protocol BeginnerProgram: StateMachine, HasUI { }
 
 public extension BeginnerProgram {
-    static func bind<V>(with v: V, environment: Environment) where V: View, V.Model == ViewModel, V.Message == Message {
+    static func bind<V>(with v: V, environment: Environment) where V: ViewType, V.Model == ViewModel, V.Message == Message {
         let messageProxy: PublishSubject<Message> = PublishSubject()
         
         let model_command$: Observable<(Model, Command)> = app(messageProxy)

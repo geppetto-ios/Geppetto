@@ -8,7 +8,7 @@
 
 import RxSwift
 
-public protocol View {
+public protocol ViewType {
     associatedtype Model
     associatedtype Message
     
@@ -20,14 +20,14 @@ public protocol View {
     var disposeBag: DisposeBag { get }
 }
 
-public extension View {
+public extension ViewType {
     func run(_ model: Model) -> Observable<Message> {
         model$.onNext(model)
         return message$
     }
 }
 
-public extension Reactive where Base: View {
+public extension Reactive where Base: ViewType {
     var updated: Observable<Base.Model> {
         return base.model$.asObservable()
     }

@@ -34,7 +34,7 @@
 		69BA20D22283C1D000A06438 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D12283C1D000A06438 /* Reader.swift */; };
 		69BA20D72283C2A800A06438 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D62283C2A800A06438 /* Copyable.swift */; };
 		69BA20DA2283E67100A06438 /* Command+MonadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20D92283E67100A06438 /* Command+MonadTransformer.swift */; };
-		69BA20DE2283E6F100A06438 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20DD2283E6F100A06438 /* View.swift */; };
+		69BA20DE2283E6F100A06438 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20DD2283E6F100A06438 /* ViewType.swift */; };
 		69BA20E02283E72F00A06438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20DF2283E72F00A06438 /* ViewController.swift */; };
 		69BA20E32283E75500A06438 /* EnvironmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E22283E75500A06438 /* EnvironmentType.swift */; };
 		69BA20E62283E78E00A06438 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA20E52283E78E00A06438 /* Program.swift */; };
@@ -80,7 +80,7 @@
 		69BA20D12283C1D000A06438 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		69BA20D62283C2A800A06438 /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		69BA20D92283E67100A06438 /* Command+MonadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Command+MonadTransformer.swift"; sourceTree = "<group>"; };
-		69BA20DD2283E6F100A06438 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		69BA20DD2283E6F100A06438 /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
 		69BA20DF2283E72F00A06438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		69BA20E22283E75500A06438 /* EnvironmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentType.swift; sourceTree = "<group>"; };
 		69BA20E52283E78E00A06438 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 		69BA20DC2283E6E900A06438 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				69BA20DD2283E6F100A06438 /* View.swift */,
+				69BA20DD2283E6F100A06438 /* ViewType.swift */,
 				69BA20DF2283E72F00A06438 /* ViewController.swift */,
 			);
 			path = View;
@@ -493,7 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69BA20DE2283E6F100A06438 /* View.swift in Sources */,
+				69BA20DE2283E6F100A06438 /* ViewType.swift in Sources */,
 				69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */,
 				693672E42379187200565B59 /* Effect+MonadTransformer.swift in Sources */,
 				69BA20D02283C13E00A06438 /* Unit.swift in Sources */,
