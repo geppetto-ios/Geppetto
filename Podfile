@@ -13,4 +13,5 @@ end
 
 target 'Example' do
     rx_dependencies
+    pod 'SnapKit'
 end

@@ -44,3 +44,13 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
         }
     }
 }
+
+extension ReaderType where Value: ObservableType, Value.Element: OptionalType {
+    func mapTT<U>(_ f: @escaping (Value.Element.Wrapped) -> U) -> Reader<Env, Observable<U?>> {
+        return map { $0.map { $0.value.map(f) } }
+    }
+    
+    func liftMessage<U>(_ f: @escaping (Value.Element.Wrapped) -> U) -> Reader<Env, Observable<U?>> {
+        return mapTT(f)
+    }
+}
