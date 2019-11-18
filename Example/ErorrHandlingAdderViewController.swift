@@ -23,7 +23,7 @@ class ErrorHandlingAdderEnvironment: EnvironmentType, HasURLSession, HasUIApplic
     static var shared: ErrorHandlingAdderEnvironment = ErrorHandlingAdderEnvironment() 
 }
 
-enum ErrorHandlingAdder: Program, ErrorHandler {
+enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
     typealias Environment = ErrorHandlingAdderEnvironment
     
     enum Message {
