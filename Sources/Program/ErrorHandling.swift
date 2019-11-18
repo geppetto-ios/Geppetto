@@ -10,16 +10,15 @@ import Foundation
 import RxSwift
 import RxSwiftExt
 
-public protocol ErrorHandlingProgram {
-    associatedtype Environment: EnvironmentType
-    associatedtype Message
-    associatedtype Model: ModelType
-    typealias Command = Cmd<Environment, Message?>
-    
+public protocol RecoverableModel: ModelType {
+    static func recover(from error: Error, withModel: Self) -> Self
+}
+
+public protocol ErrorHandlingProgram: Program {
     static func handleError(_ error: Error, model: Model) -> (Model, Effect<Environment, Error>)
 }
 
-public extension Program where Self: ErrorHandlingProgram {
+public extension ErrorHandlingProgram {
     static func bind<V>(with view: V, environment: Environment) where V: View, V.Model == Model, V.Message == Message {
         let messageProxy: PublishSubject<Message> = PublishSubject()
         
