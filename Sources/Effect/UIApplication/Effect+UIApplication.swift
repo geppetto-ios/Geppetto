@@ -26,9 +26,9 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
             .topMost.rejectNil
             .alert(
                 style: .alert, 
-                title: "오류 발생", 
+                title: "Error", 
                 description: error.localizedDescription, 
-                buttons: [("확인", .default)]
+                buttons: [("OK", .default)]
             )
             .mapT(const(error))
     }
