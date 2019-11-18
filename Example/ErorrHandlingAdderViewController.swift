@@ -103,10 +103,10 @@ enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
         }
     }
     
-    static func handleError(_ error: Error, model: Model) -> (Model, Command) {
+    static func handleError(_ error: Error, model: Model) -> (Model, Effect<Environment, Error>) {
         return (
             model.copy { $0.isLoading = false }, 
-            env.alert(error: error).withoutMessage()
+            env.alert(error: error)
         )
     }
     

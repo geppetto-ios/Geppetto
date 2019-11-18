@@ -16,7 +16,7 @@ public protocol ErrorHandlingProgram {
     associatedtype Model: ModelType
     typealias Command = Cmd<Environment, Message?>
     
-    static func handleError(_ error: Error, model: Model) -> (Model, Command)
+    static func handleError(_ error: Error, model: Model) -> (Model, Effect<Environment, Error>)
 }
 
 public extension Program where Self: ErrorHandlingProgram {
@@ -37,8 +37,8 @@ public extension Program where Self: ErrorHandlingProgram {
                 case let .next(x):
                     return Observable.just((nil, x))
                 case let .error(error):
-                    let (newModel, command) = handleError(error, model: model)
-                    return command.run(environment).map { (newModel, $0) }
+                    let (newModel, effect) = handleError(error, model: model)
+                    return effect.run(environment).asObservable().map { _ in (newModel, nil) }
                 case .completed:
                     return Observable.just((nil, nil))
                 }
