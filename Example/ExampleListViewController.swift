@@ -13,6 +13,7 @@ class ExampleListViewController: UITableViewController {
         case showSimpleAdder
         case showPersistentAdder
         case showNetworkingAdder
+        case showErrorHandlingAdder
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,6 +35,12 @@ class ExampleListViewController: UITableViewController {
             if 
                 let vc = segue.destination as? NetworkingAdderViewController {
                 NetworkingAdder.bind(with: vc, environment: .shared)
+            }
+            
+        case .showErrorHandlingAdder:
+            if 
+                let vc = segue.destination as? ErrorHandlingAdderViewController {
+                ErrorHandlingAdder.bind(with: vc, environment: .shared)
             }
         }
     }

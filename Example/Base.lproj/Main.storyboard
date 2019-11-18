@@ -76,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="1231"/>
+            <point key="canvasLocation" x="1054" y="846"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ewi-p7-KWS">
@@ -167,6 +167,26 @@
                                             <segue destination="cGe-hm-EKn" kind="show" identifier="showNetworkingAdder" id="aeD-88-1v1"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="BG8-Yu-Ab9" style="IBUITableViewCellStyleDefault" id="8aM-mJ-lPi">
+                                        <rect key="frame" x="0.0" y="132" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8aM-mJ-lPi" id="fEd-5w-22D">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Error Handling Adder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BG8-Yu-Ab9">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Bib-Gj-I82" kind="show" identifier="showErrorHandlingAdder" id="k2D-pj-PKY"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -247,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBE-z5-7Jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="545"/>
+            <point key="canvasLocation" x="1054" y="181"/>
         </scene>
         <!--Networking Adder View Controller-->
         <scene sceneID="oVd-qJ-Jod">
@@ -321,7 +341,81 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fam-zF-k6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="-130"/>
+            <point key="canvasLocation" x="1054" y="1513"/>
+        </scene>
+        <!--Error Handling Adder View Controller-->
+        <scene sceneID="2sF-Yw-G34">
+            <objects>
+                <viewController id="Bib-Gj-I82" customClass="ErrorHandlingAdderViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SDj-gW-NO7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Thc-G4-hOe">
+                                <rect key="frame" x="20" y="423" width="374" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xim-6z-3cV">
+                                        <rect key="frame" x="0.0" y="0.0" width="94.5" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuM-zW-3vq">
+                                        <rect key="frame" x="111.5" y="0.0" width="11" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="534-sC-h0X">
+                                        <rect key="frame" x="139.5" y="0.0" width="95" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2u-6j-Ouu">
+                                        <rect key="frame" x="251.5" y="0.0" width="11" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3y-Dh-Dcm">
+                                        <rect key="frame" x="279.5" y="0.0" width="94.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="F3y-Dh-Dcm" firstAttribute="width" secondItem="Xim-6z-3cV" secondAttribute="width" id="Tv9-11-1G4"/>
+                                    <constraint firstItem="534-sC-h0X" firstAttribute="width" secondItem="Xim-6z-3cV" secondAttribute="width" id="dX2-oe-1c6"/>
+                                </constraints>
+                            </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Zle-RZ-s3s">
+                                <rect key="frame" x="336.5" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Thc-G4-hOe" firstAttribute="centerY" secondItem="SDj-gW-NO7" secondAttribute="centerY" id="Boz-fv-qg2"/>
+                            <constraint firstItem="Zle-RZ-s3s" firstAttribute="centerY" secondItem="F3y-Dh-Dcm" secondAttribute="centerY" id="JXx-7D-rK9"/>
+                            <constraint firstItem="Thc-G4-hOe" firstAttribute="trailing" secondItem="Jgl-WB-uJk" secondAttribute="trailing" constant="-20" id="PFO-h4-acY"/>
+                            <constraint firstItem="Thc-G4-hOe" firstAttribute="centerX" secondItem="SDj-gW-NO7" secondAttribute="centerX" id="gzZ-pb-gxK"/>
+                            <constraint firstItem="Zle-RZ-s3s" firstAttribute="centerX" secondItem="F3y-Dh-Dcm" secondAttribute="centerX" id="pka-gR-L3P"/>
+                            <constraint firstItem="Thc-G4-hOe" firstAttribute="leading" secondItem="Jgl-WB-uJk" secondAttribute="leading" constant="20" id="r4x-sg-Tp8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jgl-WB-uJk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pxg-b4-Wml"/>
+                    <connections>
+                        <outlet property="leftOperandTextField" destination="Xim-6z-3cV" id="KXf-bW-rVV"/>
+                        <outlet property="loadingIndicator" destination="Zle-RZ-s3s" id="RZ2-iB-TZO"/>
+                        <outlet property="resultLabel" destination="F3y-Dh-Dcm" id="EDb-Zp-2Br"/>
+                        <outlet property="rightOperandTextField" destination="534-sC-h0X" id="5pa-4M-Vbn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NEr-xT-zNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="2192"/>
         </scene>
     </scenes>
 </document>

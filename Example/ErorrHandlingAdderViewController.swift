@@ -1,8 +1,8 @@
 //
-//  PersistentAdderViewController.swift
+//  ErorrHandlingAdderViewController.swift
 //  Example
 //
-//  Created by JinSeo Yoon on 11/11/2019.
+//  Created by JinSeo Yoon on 18/11/2019.
 //  Copyright © 2019 rinndash. All rights reserved.
 //
 
@@ -11,24 +11,26 @@ import Geppetto
 import RxSwift
 import RxSwiftExt
 
-class NetworkingAdderEnvironment: EnvironmentType, HasURLSession {
+class ErrorHandlingAdderEnvironment: EnvironmentType, HasURLSession, HasUIApplication {
     let urlSession: URLSession
+    let application: UIApplication
     
-    init(urlSession: URLSession = .shared) {
+    init(application: UIApplication = .shared, urlSession: URLSession = .shared) {
+        self.application = application
         self.urlSession = urlSession
     }
     
-    static let shared: NetworkingAdderEnvironment = NetworkingAdderEnvironment()
+    static var shared: ErrorHandlingAdderEnvironment = ErrorHandlingAdderEnvironment() 
 }
 
-enum NetworkingAdder: Program {
-    typealias Environment = NetworkingAdderEnvironment
+enum ErrorHandlingAdder: Program, ErrorHandler {
+    typealias Environment = ErrorHandlingAdderEnvironment
     
     enum Message {
         case updateLeftOperand(String?)
         case updateRightOperand(String?)
         case makeRequest
-        case updateCalculationResult(Int?)
+        case updateCalculationResult(Int)
     }
     
     struct Model: ModelType, Copyable {
@@ -85,7 +87,8 @@ enum NetworkingAdder: Program {
                 },
                 env.urlSession
                     .data(request: request)
-                    .mapT { String(data: $0, encoding: .utf8).flatMap(Int.init) }
+                    .mapT {  String(data: $0, encoding: .utf8).flatMap(Int.init) }
+                    .rejectNil
                     .withMessage(Message.updateCalculationResult)
             )
             
@@ -100,6 +103,13 @@ enum NetworkingAdder: Program {
         }
     }
     
+    static func handleError(_ error: Error, model: Model) -> (Model, Command) {
+        return (
+            model.copy { $0.isLoading = false }, 
+            env.alert(error: error).withoutMessage()
+        )
+    }
+    
     typealias ViewModel = String?
     
     static func view(model: Model) -> ViewModel {
@@ -107,16 +117,16 @@ enum NetworkingAdder: Program {
     }
 }
 
-protocol NetworkingAdderViewModel {
+protocol ErrorHandlingAdderViewModel {
     var resultText: String? { get }
     var isLoading: Bool { get }
 }
 
-extension NetworkingAdder.Model: NetworkingAdderViewModel {
+extension ErrorHandlingAdder.Model: ErrorHandlingAdderViewModel {
     var resultText: String? { return result?.description }
 }
 
-class NetworkingAdderViewController: ViewController<NetworkingAdder> {
+class ErrorHandlingAdderViewController: ViewController<ErrorHandlingAdder> {
     @IBOutlet weak var leftOperandTextField: UITextField!
     @IBOutlet weak var rightOperandTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
