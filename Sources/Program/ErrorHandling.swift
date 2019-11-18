@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxSwiftExt
 
-public protocol ErrorHandler {
+public protocol ErrorHandlingProgram {
     associatedtype Environment: EnvironmentType
     associatedtype Message
     associatedtype Model: ModelType
@@ -19,7 +19,7 @@ public protocol ErrorHandler {
     static func handleError(_ error: Error, model: Model) -> (Model, Command)
 }
 
-public extension Program where Self: ErrorHandler {
+public extension Program where Self: ErrorHandlingProgram {
     static func bind<V>(with view: V, environment: Environment) where V: View, V.Model == Model, V.Message == Message {
         let messageProxy: PublishSubject<Message> = PublishSubject()
         
