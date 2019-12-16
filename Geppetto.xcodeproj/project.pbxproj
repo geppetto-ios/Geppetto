@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08CACE7423A756F000FC853B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CACE7323A756F000FC853B /* TabBarController.swift */; };
+		08CACE7923A7580A00FC853B /* ExampleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CACE7823A7580A00FC853B /* ExampleList.swift */; };
 		1E6349A69EDCB98777D26415 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9122258C5FA9FB3242066A1C /* Pods_Example.framework */; };
 		1F3F72C022AE1E110055620C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F72BF22AE1E110055620C /* AppDelegate.swift */; };
 		1F3F72C222AE1E110055620C /* SimpleAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F72C122AE1E110055620C /* SimpleAdderViewController.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08CACE7323A756F000FC853B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		08CACE7823A7580A00FC853B /* ExampleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleList.swift; sourceTree = "<group>"; };
 		1F3F72BD22AE1E100055620C /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3F72BF22AE1E110055620C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F3F72C122AE1E110055620C /* SimpleAdderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAdderViewController.swift; sourceTree = "<group>"; };
@@ -114,9 +118,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08CACE7723A7578700FC853B /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				08CACE7823A7580A00FC853B /* ExampleList.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		1F3F72BE22AE1E110055620C /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				08CACE7723A7578700FC853B /* SwiftUI */,
 				1F3F72BF22AE1E110055620C /* AppDelegate.swift */,
 				6926B35A237902C200B76761 /* ExampleListViewController.swift */,
 				1F3F72C122AE1E110055620C /* SimpleAdderViewController.swift */,
@@ -127,6 +140,7 @@
 				1F3F72C622AE1E110055620C /* Assets.xcassets */,
 				1F3F72C822AE1E110055620C /* LaunchScreen.storyboard */,
 				1F3F72CB22AE1E110055620C /* Info.plist */,
+				08CACE7323A756F000FC853B /* TabBarController.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -472,6 +486,8 @@
 				693B35072382229200A4F89F /* ErorrHandlingAdderViewController.swift in Sources */,
 				6926B3592378F83E00B76761 /* PersistentAdderViewController.swift in Sources */,
 				6926B35B237902C200B76761 /* ExampleListViewController.swift in Sources */,
+				08CACE7923A7580A00FC853B /* ExampleList.swift in Sources */,
+				08CACE7423A756F000FC853B /* TabBarController.swift in Sources */,
 				1F3F72C222AE1E110055620C /* SimpleAdderViewController.swift in Sources */,
 				1F3F72C022AE1E110055620C /* AppDelegate.swift in Sources */,
 			);
@@ -542,6 +558,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68L248M44U;
 				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,6 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68L248M44U;
 				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
