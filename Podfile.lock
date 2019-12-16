@@ -20,7 +20,7 @@ DEPENDENCIES:
   - RxSwiftExt (~> 5)
 
 SPEC REPOS:
-  trunk:
+  https://cdn.cocoapods.org/:
     - RxCocoa
     - RxRelay
     - RxSwift

@@ -143,10 +143,12 @@ class ErrorHandlingAdderViewController: ViewController<ErrorHandlingAdder> {
         
         let updateLeftOperand$ = leftOperandTextField.rx.value
             .distinctUntilChanged()
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
             .map(Message.updateLeftOperand)
         
         let updateRightOperand$ = rightOperandTextField.rx.value
             .distinctUntilChanged()
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
             .map(Message.updateRightOperand)
         
         let input$ = Observable.merge(updateLeftOperand$, updateRightOperand$)            
