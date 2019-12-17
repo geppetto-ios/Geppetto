@@ -17,9 +17,8 @@ var integerFormatter: NumberFormatter {
 struct SimpleAdderView: View {
     @State var right: Decimal? = nil
     @State var left: Decimal? = nil
-
-    var body: some View {
-        let addedValue = Binding<String>(
+    var addedValue: Binding<String> {
+        Binding<String>(
             get: {
                 guard let left = self.left, let right = self.right else {
                     return " "
@@ -28,7 +27,10 @@ struct SimpleAdderView: View {
             },
             set: { newValue in print(newValue) }
         )
-        return HStack {
+    }
+
+    var body: some View {
+        HStack {
             DecimalField(label: "L", value: $left, formatter: integerFormatter)
                 .border(Color.black)
                 .font(.system(size: 25))
