@@ -10,13 +10,28 @@ import SwiftUI
 
 struct ExampleList: View {
     let examples: [String] = ["Simple Adder", "Persistent Adder", "Networking Adder", "Error Handling Adder"]
+    let swiftUIImage = Image("swiftui-24")
     var body: some View {
         NavigationView {
-          List(examples, id: \.self) { example in
-            Text(example)
-            Image("swiftui-24")
-          }
-          .navigationBarTitle("Examples")
+            List {
+                NavigationLink(destination: SimpleAdderView()) {
+                    Text("Simple Adder")
+                    swiftUIImage
+                }
+                NavigationLink(destination: SimpleAdderView()) {
+                    Text("Persistent Adder")
+                    swiftUIImage
+                }
+                NavigationLink(destination: SimpleAdderView()) {
+                    Text("Networking Adder")
+                    swiftUIImage
+                }
+                NavigationLink(destination: SimpleAdderView()) {
+                    Text("Error Handling Adder")
+                    swiftUIImage
+                }
+            }
+            .navigationBarTitle("Examples")
         }
     }
 }

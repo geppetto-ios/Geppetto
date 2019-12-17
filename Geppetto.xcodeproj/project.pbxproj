@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		08CACE7423A756F000FC853B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CACE7323A756F000FC853B /* TabBarController.swift */; };
 		08CACE7923A7580A00FC853B /* ExampleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CACE7823A7580A00FC853B /* ExampleList.swift */; };
+		08CACE7B23A7612A00FC853B /* SimpleAdderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CACE7A23A7612A00FC853B /* SimpleAdderView.swift */; };
+		08CACE7D23A77F3500FC853B /* DecimalField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CACE7C23A77F3500FC853B /* DecimalField.swift */; };
 		1E6349A69EDCB98777D26415 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9122258C5FA9FB3242066A1C /* Pods_Example.framework */; };
 		1F3F72C022AE1E110055620C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F72BF22AE1E110055620C /* AppDelegate.swift */; };
 		1F3F72C222AE1E110055620C /* SimpleAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F72C122AE1E110055620C /* SimpleAdderViewController.swift */; };
@@ -56,6 +58,8 @@
 /* Begin PBXFileReference section */
 		08CACE7323A756F000FC853B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		08CACE7823A7580A00FC853B /* ExampleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleList.swift; sourceTree = "<group>"; };
+		08CACE7A23A7612A00FC853B /* SimpleAdderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAdderView.swift; sourceTree = "<group>"; };
+		08CACE7C23A77F3500FC853B /* DecimalField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalField.swift; sourceTree = "<group>"; };
 		1F3F72BD22AE1E100055620C /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3F72BF22AE1E110055620C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F3F72C122AE1E110055620C /* SimpleAdderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAdderViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				08CACE7823A7580A00FC853B /* ExampleList.swift */,
+				08CACE7A23A7612A00FC853B /* SimpleAdderView.swift */,
+				08CACE7C23A77F3500FC853B /* DecimalField.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -485,10 +491,12 @@
 				69A2A4D1237BFE4900873A19 /* NetworkingAdderViewController.swift in Sources */,
 				693B35072382229200A4F89F /* ErorrHandlingAdderViewController.swift in Sources */,
 				6926B3592378F83E00B76761 /* PersistentAdderViewController.swift in Sources */,
+				08CACE7B23A7612A00FC853B /* SimpleAdderView.swift in Sources */,
 				6926B35B237902C200B76761 /* ExampleListViewController.swift in Sources */,
 				08CACE7923A7580A00FC853B /* ExampleList.swift in Sources */,
 				08CACE7423A756F000FC853B /* TabBarController.swift in Sources */,
 				1F3F72C222AE1E110055620C /* SimpleAdderViewController.swift in Sources */,
+				08CACE7D23A77F3500FC853B /* DecimalField.swift in Sources */,
 				1F3F72C022AE1E110055620C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
