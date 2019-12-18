@@ -78,7 +78,7 @@
         <scene sceneID="Ewi-p7-KWS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zRT-9q-Vcx" userLabel="Navigation Controller" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="UIKit" image="trash" catalog="system" selectedImage="trash" id="bM2-Cc-nVX" userLabel="UIKit"/>
+                    <tabBarItem key="tabBarItem" title="UIKit" image="viewfinder" catalog="system" selectedImage="viewfinder" id="bM2-Cc-nVX" userLabel="UIKit"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NL4-iR-STK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -427,6 +427,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="trash" catalog="system" width="60" height="64"/>
+        <image name="viewfinder" catalog="system" width="64" height="56"/>
     </resources>
 </document>
