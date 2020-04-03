@@ -27,6 +27,7 @@ let package = Package(
             dependencies: ["RxSwift",
                            .product(name: "RxCocoa", package: "RxSwift"),
                            "RxSwiftExt"],
-            path: "Sources")
+            path: "Sources",
+            exclude: ["Example"])
     ]
 )
