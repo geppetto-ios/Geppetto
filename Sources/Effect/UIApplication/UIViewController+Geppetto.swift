@@ -6,6 +6,7 @@
 //  Copyright © 2019 rinndash. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 extension UIViewController {
@@ -71,3 +72,4 @@ extension UIViewController {
         return viewController
     }
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2019 rinndash. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 import RxSwift
 import RxCocoa
@@ -49,3 +50,4 @@ public extension Reactive where Base: UIViewController {
         return ControlEvent(events: source)
     }
 }
+#endif
