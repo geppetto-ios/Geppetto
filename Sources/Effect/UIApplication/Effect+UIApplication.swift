@@ -18,12 +18,16 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
     var application: Effect<Env, UIApplication> {
         mapT { $0.application }
     }
+
+    var topMostViewController: Effect<Env, UIViewController> {
+      application
+        .keyWindow.rejectNil
+        .rootViewController.rejectNil
+        .topMost.rejectNil
+    }
     
     func alert(error: Error) -> Effect<Env, Error> {
-        application
-            .keyWindow.rejectNil
-            .rootViewController.rejectNil
-            .topMost.rejectNil
+        topMostViewController
             .alert(
                 style: .alert, 
                 title: "Error", 
@@ -33,43 +37,8 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
             .mapT(const(error))
     }
 
-    func presentOverTopMostViewController<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool, withNavigation: Bool = false, presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P> {
-        application
-            .keyWindow.rejectNil
-            .rootViewController.rejectNil
-            .topMost.rejectNil
-            .present(type, environment: environment, animated: animated, withNavigation: withNavigation, presentationStyle: presentationStyle, transitionStyle: transitionStyle)
-    }
-
-    func dismissTopMostViewController(animated: Bool) -> Effect<Env, UIViewController> {
-        application
-            .keyWindow.rejectNil
-            .rootViewController.rejectNil
-            .topMost.rejectNil
-            .dismiss(animated: animated)
-    }
-
-    func pushToTopMostViewController<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P> {
-        application
-            .keyWindow.rejectNil
-            .rootViewController.rejectNil
-            .topMost.rejectNil
-            .push(type, environment: environment, animated: animated)
-    }
-
-    func popTopMostViewController(animated: Bool) -> Effect<Env, UIViewController> {
-        application
-            .keyWindow.rejectNil
-            .rootViewController.rejectNil
-            .topMost.rejectNil
-            .pop(animated: animated)
-    }
-
     func popToRootViewController(animated: Bool) -> Effect<Env, UIViewController> {
-        application
-            .keyWindow.rejectNil
-            .rootViewController.rejectNil
-            .topMost.rejectNil
+        topMostViewController
             .popToRoot(animated: animated)
     }
 }
