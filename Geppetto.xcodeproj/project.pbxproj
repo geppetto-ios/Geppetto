@@ -14,6 +14,7 @@
 		1F3F72C722AE1E110055620C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F72C622AE1E110055620C /* Assets.xcassets */; };
 		1F3F72CA22AE1E110055620C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3F72C822AE1E110055620C /* LaunchScreen.storyboard */; };
 		25A5D63E36465849264DD9F5 /* Pods_Geppetto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C611B8D5F26B665AA70C1D9A /* Pods_Geppetto.framework */; };
+		2E05CDF62577B092003B988A /* Effect+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E05CDF52577B092003B988A /* Effect+UIViewController.swift */; };
 		6926B3592378F83E00B76761 /* PersistentAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6926B3582378F83E00B76761 /* PersistentAdderViewController.swift */; };
 		6926B35B237902C200B76761 /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6926B35A237902C200B76761 /* ExampleListViewController.swift */; };
 		693672E22379178C00565B59 /* Effect+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693672E12379178C00565B59 /* Effect+UserDefaults.swift */; };
@@ -59,6 +60,7 @@
 		1F3F72C622AE1E110055620C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F3F72C922AE1E110055620C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F3F72CB22AE1E110055620C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E05CDF52577B092003B988A /* Effect+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+UIViewController.swift"; sourceTree = "<group>"; };
 		6926B3582378F83E00B76761 /* PersistentAdderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentAdderViewController.swift; sourceTree = "<group>"; };
 		6926B35A237902C200B76761 /* ExampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListViewController.swift; sourceTree = "<group>"; };
 		693672E12379178C00565B59 /* Effect+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+UserDefaults.swift"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				698F0F72237E8C76003E67C1 /* Effect+UIApplication.swift */,
+				2E05CDF52577B092003B988A /* Effect+UIViewController.swift */,
 				698F0F74237E8E7C003E67C1 /* UIViewController+Geppetto.swift */,
 			);
 			path = UIApplication;
@@ -485,6 +488,7 @@
 				69BA20CE2283C08B00A06438 /* OptionalType.swift in Sources */,
 				693672E42379187200565B59 /* Effect+MonadTransformer.swift in Sources */,
 				69BA20D02283C13E00A06438 /* Unit.swift in Sources */,
+				2E05CDF62577B092003B988A /* Effect+UIViewController.swift in Sources */,
 				693672E623791F7700565B59 /* Effect.swift in Sources */,
 				69BA20E02283E72F00A06438 /* ViewController.swift in Sources */,
 				69BA20C92283BF2F00A06438 /* Operators.swift in Sources */,
