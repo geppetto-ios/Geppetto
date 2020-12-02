@@ -56,6 +56,22 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
             .topMost.rejectNil
             .push(type, environment: environment, animated: animated)
     }
+
+    func popTopMostViewController(animated: Bool) -> Effect<Env, Void> {
+        application
+            .keyWindow.rejectNil
+            .rootViewController.rejectNil
+            .topMost.rejectNil
+            .pop(animated: animated)
+    }
+
+    func popToRootViewController(animated: Bool) -> Effect<Env, Void> {
+        application
+            .keyWindow.rejectNil
+            .rootViewController.rejectNil
+            .topMost.rejectNil
+            .popToRoot(animated: animated)
+    }
 }
 
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == UIApplication {
@@ -138,6 +154,32 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
                     P.bind(with: targetToPush, environment: environment)
                     vc.navigationController?.pushViewController(targetToPush, animated: animated)
                     single(.success(targetToPush))
+                    return Disposables.create()
+                }
+            }
+        }
+    }
+
+    func pop(animated: Bool) -> Effect<Env, Void> {
+        flatMapT { (vc: UIViewController) -> Effect<Env, Void> in
+            Effect<Env, Void> { (_: Env) -> Single<Void> in
+                Single<Void>.create { [weak vc] single in
+                    guard let vc = vc else { return Disposables.create() }
+                    vc.navigationController?.popViewController(animated: animated)
+                    single(.success(()))
+                    return Disposables.create()
+                }
+            }
+        }
+    }
+
+    func popToRoot(animated: Bool) -> Effect<Env, Void> {
+        flatMapT { (vc: UIViewController) -> Effect<Env, Void> in
+            Effect<Env, Void> { (_: Env) -> Single<Void> in
+                Single<Void>.create { [weak vc] single in
+                    guard let vc = vc else { return Disposables.create() }
+                    vc.navigationController?.popToRootViewController(animated: animated)
+                    single(.success(()))
                     return Disposables.create()
                 }
             }
