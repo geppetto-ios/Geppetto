@@ -18,12 +18,16 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
     var application: Effect<Env, UIApplication> {
         mapT { $0.application }
     }
+
+    var topMostViewController: Effect<Env, UIViewController> {
+      application
+        .keyWindow.rejectNil
+        .rootViewController.rejectNil
+        .topMost.rejectNil
+    }
     
     func alert(error: Error) -> Effect<Env, Error> {
-        application
-            .keyWindow.rejectNil
-            .rootViewController.rejectNil
-            .topMost.rejectNil
+        topMostViewController
             .alert(
                 style: .alert, 
                 title: "Error", 
@@ -33,12 +37,9 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
             .mapT(const(error))
     }
 
-    func dismissTopMostViewController(animated: Bool) -> Effect<Env, UIViewController> {
-        application
-            .keyWindow.rejectNil
-            .rootViewController.rejectNil
-            .topMost.rejectNil
-            .dismiss(animated: animated)
+    func popToRootViewController(animated: Bool) -> Effect<Env, UIViewController> {
+        topMostViewController
+            .popToRoot(animated: animated)
     }
 }
 
@@ -77,12 +78,77 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
         }
     }
 
+    func present<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool, withNavigation: Bool = false, presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P> {
+        flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
+            Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
+                Single<UIViewController>.create { [weak vc] single in
+                    guard let vc = vc else { return Disposables.create() }
+                    let target: VC = VC()
+                    P.bind(with: target, environment: environment)
+                    var targetToPresent: UIViewController
+                    if withNavigation {
+                        targetToPresent = UINavigationController(rootViewController: target)
+                    } else {
+                        targetToPresent = target
+                    }
+                    targetToPresent.modalPresentationStyle = presentationStyle
+                    targetToPresent.modalTransitionStyle = transitionStyle
+                    vc.present(targetToPresent, animated: animated) {
+                        single(.success(targetToPresent))
+                    }
+                    return Disposables.create()
+                }
+            }
+        }
+    }
+
     func dismiss(animated: Bool) -> Effect<Env, UIViewController> {
         flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
             Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
                 Single<UIViewController>.create { [weak vc] single in
                     guard let vc = vc else { return Disposables.create() }
                     vc.dismiss(animated: animated) { single(.success(vc)) }
+                    return Disposables.create()
+                }
+            }
+        }
+    }
+
+    func push<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P> {
+        flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
+            Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
+                Single<UIViewController>.create { [weak vc] single in
+                    guard let vc = vc else { return Disposables.create() }
+                    let targetToPush: VC = VC()
+                    P.bind(with: targetToPush, environment: environment)
+                    vc.navigationController?.pushViewController(targetToPush, animated: animated)
+                    single(.success(targetToPush))
+                    return Disposables.create()
+                }
+            }
+        }
+    }
+
+    func pop(animated: Bool) -> Effect<Env, UIViewController> {
+        flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
+            Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
+                Single<UIViewController>.create { [weak vc] single in
+                    guard let vc = vc else { return Disposables.create() }
+                    vc.navigationController?.popViewController(animated: animated)
+                    single(.success(vc))
+                    return Disposables.create()
+                }
+            }
+        }
+    }
+
+    func popToRoot(animated: Bool) -> Effect<Env, UIViewController> {
+        flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
+            Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
+                Single<UIViewController>.create { [weak vc] single in
+                    guard let vc = vc else { return Disposables.create() }
+                    vc.navigationController?.popToRootViewController(animated: animated)
+                    single(.success(vc))
                     return Disposables.create()
                 }
             }
