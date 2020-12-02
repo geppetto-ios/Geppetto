@@ -78,7 +78,7 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
         }
     }
 
-    func present<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool, withNavigation: Bool, presentationStyle: UIModalPresentationStyle, transitionStyle: UIModalTransitionStyle) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P> {
+    func present<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool, withNavigation: Bool = false, presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P> {
         flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
             Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
                 Single<UIViewController>.create { [weak vc] single in
