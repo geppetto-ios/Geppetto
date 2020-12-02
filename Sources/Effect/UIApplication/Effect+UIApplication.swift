@@ -16,11 +16,11 @@ public protocol HasUIApplication {
 
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element: HasUIApplication {
     var application: Effect<Env, UIApplication> {
-        return mapT { $0.application }
+        mapT { $0.application }
     }
     
     func alert(error: Error) -> Effect<Env, Error> {
-        return application
+        application
             .keyWindow.rejectNil
             .rootViewController.rejectNil
             .topMost.rejectNil
@@ -34,7 +34,7 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
     }
 
     func dismissTopMostViewController(animated: Bool) -> Effect<Env, UIViewController> {
-        return application
+        application
             .keyWindow.rejectNil
             .rootViewController.rejectNil
             .topMost.rejectNil
@@ -44,28 +44,28 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
 
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == UIApplication {
     var keyWindow: Effect<Env, UIWindow?> {
-        return mapT { $0.keyWindow }
+        mapT { $0.keyWindow }
     }
 }
 
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == UIWindow {
     var rootViewController: Effect<Env, UIViewController?> {
-        return mapT { $0.rootViewController }
+        mapT { $0.rootViewController }
     }
 }
 
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == UIViewController {
     var topMost: Effect<Env, UIViewController?> {
-        return mapT { UIViewController.topMost(of: $0) }
+        mapT { UIViewController.topMost(of: $0) }
     }
     
     func alert(style: UIAlertController.Style, title: String? = nil, description: String? = nil, buttons: [(String, UIAlertAction.Style)]) -> Effect<Env, String> {
-        return flatMapT { (vc: UIViewController) -> Effect<Env, String> in
-            return Effect<Env, String> { (_: Env) -> Single<String> in
-                return Single<String>.create { [weak vc] single in
+        flatMapT { (vc: UIViewController) -> Effect<Env, String> in
+            Effect<Env, String> { (_: Env) -> Single<String> in
+                Single<String>.create { [weak vc] single in
                     let alertController = UIAlertController(title: title, message: description, preferredStyle: style)
                     let actions: [UIAlertAction] = buttons.map { buttonTitle, buttonStyle -> UIAlertAction in
-                        return UIAlertAction(title: buttonTitle, style: buttonStyle, handler: { _ in
+                        UIAlertAction(title: buttonTitle, style: buttonStyle, handler: { _ in
                             single(.success(buttonTitle))
                         })
                     }
@@ -78,9 +78,9 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
     }
 
     func dismiss(animated: Bool) -> Effect<Env, UIViewController> {
-        return flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
-            return Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
-                return Single<UIViewController>.create { [weak vc] single in
+        flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
+            Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
+                Single<UIViewController>.create { [weak vc] single in
                     guard let vc = vc else { return Disposables.create() }
                     vc.dismiss(animated: animated) { single(.success(vc)) }
                     return Disposables.create()
