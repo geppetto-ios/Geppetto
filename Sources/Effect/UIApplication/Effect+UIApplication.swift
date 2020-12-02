@@ -32,6 +32,14 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
             )
             .mapT(const(error))
     }
+
+    func dismissTopMostViewController(animated: Bool) -> Effect<Env, UIViewController> {
+        return application
+            .keyWindow.rejectNil
+            .rootViewController.rejectNil
+            .topMost.rejectNil
+            .dismiss(animated: animated)
+    }
 }
 
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == UIApplication {
@@ -63,6 +71,18 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
                     }
                     actions.forEach(alertController.addAction)
                     vc?.present(alertController, animated: true, completion: nil)
+                    return Disposables.create()
+                }
+            }
+        }
+    }
+
+    func dismiss(animated: Bool) -> Effect<Env, UIViewController> {
+        return flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
+            return Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
+                return Single<UIViewController>.create { [weak vc] single in
+                    guard let vc = vc else { return Disposables.create() }
+                    vc.dismiss(animated: animated) { single(.success(vc)) }
                     return Disposables.create()
                 }
             }
