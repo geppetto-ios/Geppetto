@@ -40,6 +40,14 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
             .topMost.rejectNil
             .dismiss(animated: animated)
     }
+
+    func presentOverTopMostViewController<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool, withNavigation: Bool = false, presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical) -> Effect<Env, Void> where P: Program, VC: ViewController<P> {
+        application
+            .keyWindow.rejectNil
+            .rootViewController.rejectNil
+            .topMost.rejectNil
+            .present(type, environment: environment, animated: animated, withNavigation: withNavigation, presentationStyle: presentationStyle, transitionStyle: transitionStyle)
+    }
 }
 
 public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == SingleTrait, Value.Element == UIApplication {
@@ -71,6 +79,34 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
                     }
                     actions.forEach(alertController.addAction)
                     vc?.present(alertController, animated: true, completion: nil)
+                    return Disposables.create()
+                }
+            }
+        }
+    }
+
+    func present<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool, withNavigation: Bool, presentationStyle: UIModalPresentationStyle, transitionStyle: UIModalTransitionStyle) -> Effect<Env, Void> where P: Program, VC: ViewController<P> {
+        flatMapT { (vc: UIViewController) -> Effect<Env, Void> in
+            Effect<Env, Void> { (_: Env) -> Single<Void> in
+                Single<Void>.create { [weak vc] single in
+                    guard let vc = vc else { return Disposables.create() }
+
+                    let target: VC = VC()
+                    P.bind(with: target, environment: environment)
+
+                    var targetToPresent: UIViewController
+                    if withNavigation {
+                        targetToPresent = UINavigationController(rootViewController: target)
+                    } else {
+                        targetToPresent = target
+                    }
+
+                    targetToPresent.modalPresentationStyle = presentationStyle
+                    targetToPresent.modalTransitionStyle = transitionStyle
+                    vc.present(targetToPresent, animated: animated) {
+                        single(.success(()))
+                    }
+
                     return Disposables.create()
                 }
             }
