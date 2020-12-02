@@ -33,6 +33,14 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
             .mapT(const(error))
     }
 
+    func presentOverTopMostViewController<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool, withNavigation: Bool = false, presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical) -> Effect<Env, Void> where P: Program, VC: ViewController<P> {
+        application
+            .keyWindow.rejectNil
+            .rootViewController.rejectNil
+            .topMost.rejectNil
+            .present(type, environment: environment, animated: animated, withNavigation: withNavigation, presentationStyle: presentationStyle, transitionStyle: transitionStyle)
+    }
+
     func dismissTopMostViewController(animated: Bool) -> Effect<Env, UIViewController> {
         application
             .keyWindow.rejectNil
@@ -41,12 +49,12 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
             .dismiss(animated: animated)
     }
 
-    func presentOverTopMostViewController<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool, withNavigation: Bool = false, presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical) -> Effect<Env, Void> where P: Program, VC: ViewController<P> {
+    func pushToTopMostViewController<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P> {
         application
             .keyWindow.rejectNil
             .rootViewController.rejectNil
             .topMost.rejectNil
-            .present(type, environment: environment, animated: animated, withNavigation: withNavigation, presentationStyle: presentationStyle, transitionStyle: transitionStyle)
+            .push(type, environment: environment, animated: animated)
     }
 }
 
@@ -90,23 +98,19 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
             Effect<Env, Void> { (_: Env) -> Single<Void> in
                 Single<Void>.create { [weak vc] single in
                     guard let vc = vc else { return Disposables.create() }
-
                     let target: VC = VC()
                     P.bind(with: target, environment: environment)
-
                     var targetToPresent: UIViewController
                     if withNavigation {
                         targetToPresent = UINavigationController(rootViewController: target)
                     } else {
                         targetToPresent = target
                     }
-
                     targetToPresent.modalPresentationStyle = presentationStyle
                     targetToPresent.modalTransitionStyle = transitionStyle
                     vc.present(targetToPresent, animated: animated) {
                         single(.success(()))
                     }
-
                     return Disposables.create()
                 }
             }
@@ -119,6 +123,21 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
                 Single<UIViewController>.create { [weak vc] single in
                     guard let vc = vc else { return Disposables.create() }
                     vc.dismiss(animated: animated) { single(.success(vc)) }
+                    return Disposables.create()
+                }
+            }
+        }
+    }
+
+    func push<P, VC>(_ type: VC.Type, environment: P.Environment, animated: Bool) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P> {
+        flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
+            Effect<Env, UIViewController> { (_: Env) -> Single<UIViewController> in
+                Single<UIViewController>.create { [weak vc] single in
+                    guard let vc = vc else { return Disposables.create() }
+                    let targetToPush: VC = VC()
+                    P.bind(with: targetToPush, environment: environment)
+                    vc.navigationController?.pushViewController(targetToPush, animated: animated)
+                    single(.success(targetToPush))
                     return Disposables.create()
                 }
             }
