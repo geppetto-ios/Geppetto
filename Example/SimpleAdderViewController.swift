@@ -81,7 +81,6 @@ class SimpleAdderViewController: ViewController<SimpleAdder> {
             .disposed(by: disposeBag)
         
         rx.updated
-            .map { $0.resultText }
             .bind(to: resultLabel.rx.text)
             .disposed(by: disposeBag)
     }

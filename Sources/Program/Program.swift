@@ -19,10 +19,12 @@ public protocol Program {
     associatedtype Environment: EnvironmentType
     associatedtype Message
     associatedtype Model: ModelType
+    associatedtype ViewModel
     typealias Command = Cmd<Environment, Message?>
     
     static var initialCommand: Command { get }
     static func update(model: Model, message: Message) -> (Model, Command)
+    static func view(model: Model) -> ViewModel
 }
 
 public extension Program {
@@ -43,7 +45,7 @@ public extension Program {
 }
 
 public extension Program {
-    static func bind<V>(with view: V, environment: Environment) where V: View, V.Model == Model, V.Message == Message {
+    static func bind<V>(with view: V, environment: Environment) where V: View, V.Model == ViewModel, V.Message == Message {
         let messageProxy: PublishSubject<Message> = PublishSubject()
         
         let model_command$: Observable<(Model, Command)> = app(messageProxy)
@@ -53,7 +55,7 @@ public extension Program {
         let command$: Observable<Command> = model_command$.map { $0.1 }
         
         let message$: Observable<Message> = Observable.merge(
-            model$.flatMapLatest(view.run),
+            model$.map(self.view).flatMapLatest(view.run),
             command$.flatMap(environment.run)
         )
         

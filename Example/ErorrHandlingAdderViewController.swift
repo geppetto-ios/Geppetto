@@ -111,11 +111,9 @@ enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
         return env.alert(error: error)
     }
     
-    typealias ViewModel = String?
+    typealias ViewModel = ErrorHandlingAdderViewModel
     
-    static func view(model: Model) -> ViewModel {
-        return model.resultText
-    }
+    static func view(model: Model) -> ViewModel { model }
 }
 
 protocol ErrorHandlingAdderViewModel {

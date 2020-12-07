@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 open class ViewController<P: Program>: UIViewController, View {
-    public let model$: PublishSubject<P.Model> = PublishSubject()
+    public let model$: PublishSubject<P.ViewModel> = PublishSubject()
     public let message$: PublishSubject<P.Message> = PublishSubject()
     
     public var didReady$: Single<Void> { return rx.viewWillAppear.take(1).mapTo(()).asSingle() }

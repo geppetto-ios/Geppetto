@@ -12,7 +12,7 @@ import RxSwift
 extension Unit: EnvironmentType { }
 
 public extension Program where Environment == Unit {
-    static func bind<V>(with view: V) where V: View, V.Model == Model, V.Message == Message {
+    static func bind<V>(with view: V) where V: View, V.Model == ViewModel, V.Message == Message {
         return bind(with: view, environment: Unit())
     }
 }

@@ -84,11 +84,9 @@ enum PersistentAdder: Program {
         }
     }
     
-    typealias ViewModel = String?
+    typealias ViewModel = PersistentAdderViewModel
     
-    static func view(model: Model) -> ViewModel {
-        return model.resultText
-    }
+    static func view(model: Model) -> ViewModel { model }
 }
 
 protocol PersistentAdderViewModel {

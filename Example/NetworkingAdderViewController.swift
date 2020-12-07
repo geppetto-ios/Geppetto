@@ -100,10 +100,10 @@ enum NetworkingAdder: Program {
         }
     }
     
-    typealias ViewModel = String?
+    typealias ViewModel = NetworkingAdderViewModel
     
     static func view(model: Model) -> ViewModel {
-        return model.resultText
+        return model
     }
 }
 

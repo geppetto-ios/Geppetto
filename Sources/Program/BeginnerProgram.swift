@@ -9,14 +9,7 @@
 import Foundation
 import RxSwift
 
-public protocol HasUI {
-    associatedtype Model
-    associatedtype ViewModel
-    
-    static func view(model: Model) -> ViewModel
-}
-
-public protocol BeginnerProgram: StateMachine, HasUI { }
+public protocol BeginnerProgram: StateMachine { }
 
 public extension BeginnerProgram {
     static func bind<V>(with v: V, environment: Environment) where V: View, V.Model == ViewModel, V.Message == Message {
