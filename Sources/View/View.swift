@@ -2,45 +2,49 @@
 //  View.swift
 //  Geppetto
 //
-//  Created by JinSeo Yoon on 09/05/2019.
-//  Copyright © 2019 rinndash. All rights reserved.
+//  Created by 윤진서 on 2020/12/07.
+//  Copyright © 2020 rinndash. All rights reserved.
 //
 
+import UIKit
 import RxSwift
 
-public protocol View {
-    associatedtype Model
-    associatedtype Message
+open class View<Model, Message>: UIView, ViewType {
+    public let model$: PublishSubject<Model> = PublishSubject()
+    public let message$: PublishSubject<Message> = PublishSubject()
     
-    var model$: PublishSubject<Model> { get }
-    var message$: PublishSubject<Message> { get }
+    public let disposeBag: DisposeBag = DisposeBag()
     
-    var didReady$: Single<Void> { get }  
-    
-    var disposeBag: DisposeBag { get }
-}
-
-public extension View {
-    func run(_ model: Model) -> Observable<Message> {
-        model$.onNext(model)
-        return message$
-    }
-}
-
-public extension Reactive where Base: View {
-    var updated: Observable<Base.Model> {
-        return base.model$.asObservable()
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
     }
     
-    var update: AnyObserver<Base.Model> {
-        return base.model$.asObserver()
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initialize()
     }
     
-    var message: Observable<Base.Message> {
-        return base.message$.asObservable()
+    private func initialize() {
+        addSubviews()
+        layout()
+        style()
+        behavior()
     }
     
-    var dispatch: AnyObserver<Base.Message> {
-        return base.message$.asObserver()
+    open func addSubviews() {
+        
+    }
+    
+    open func layout() {
+        
+    }
+    
+    open func style() {
+        
+    }
+    
+    open func behavior() {
+        
     }
 }

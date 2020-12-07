@@ -20,7 +20,7 @@ public extension IndependentProgram {
 }
 
 public extension IndependentProgram {
-    static func bind<V>(with view: V, environment: Environment) where V: View, V.Model == ViewModel, V.Message == Message {
+    static func bind<V>(with view: V, environment: Environment) where V: ViewController<Self> {
         bind(with: view, dependency: Unit(), environment: environment)
     }
 }

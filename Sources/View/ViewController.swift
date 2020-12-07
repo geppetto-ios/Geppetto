@@ -10,11 +10,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-open class ViewController<P: Program>: UIViewController, View {
+open class ViewController<P: Program>: UIViewController, ViewType {
     public let model$: PublishSubject<P.ViewModel> = PublishSubject()
     public let message$: PublishSubject<P.Message> = PublishSubject()
     
-    public var didReady$: Single<Void> { return rx.viewWillAppear.take(1).mapTo(()).asSingle() }
+    public var didReady$: Single<Void> { rx.viewWillAppear.take(1).mapTo(()).asSingle() }
     
     public let disposeBag: DisposeBag = DisposeBag()
     
