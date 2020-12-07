@@ -9,7 +9,19 @@
 import Foundation
 import RxSwift
 
-public protocol BeginnerProgram: StateMachine { }
+public protocol BeginnerProgram: Program where Environment == Unit {
+    static func update(model: Model, message: Message) -> Model
+}
+
+public extension BeginnerProgram {
+    static var initialCommand: Command {
+        return .none
+    }
+    
+    static func update(model: Model, message: Message) -> (Model, Command) {
+        return (update(model: model, message: message), .none)
+    }
+}
 
 public extension BeginnerProgram {
     static func bind<V>(with v: V, environment: Environment) where V: View, V.Model == ViewModel, V.Message == Message {
