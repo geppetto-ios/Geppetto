@@ -11,17 +11,14 @@ import RxSwiftExt
 
 public typealias Cmd<E, T> = Reader<E, Observable<T>>
 
-public protocol ModelType {
-    static var initial: Self { get }
-}
-
 public protocol Program {
     associatedtype Environment: EnvironmentType
     associatedtype Message
-    associatedtype Model: ModelType
+    associatedtype Model
     associatedtype ViewModel
     typealias Command = Cmd<Environment, Message?>
     
+    static var initialModel: Model { get }
     static var initialCommand: Command { get }
     static func update(model: Model, message: Message) -> (Model, Command)
     static func view(model: Model) -> ViewModel
@@ -36,11 +33,11 @@ public extension Program {
 public extension Program {
     static func app(_ message$: Observable<Message>) -> (Observable<(Model, Command)>) {
         return message$
-            .scan((Model.initial, initialCommand)) { model_command, message -> (Self.Model, Command) in
+            .scan((initialModel, initialCommand)) { model_command, message -> (Self.Model, Command) in
                 let (model, _) = model_command
                 return update(model: model, message: message)
             }
-            .startWith((Model.initial, initialCommand))
+            .startWith((initialModel, initialCommand))
     }
 }
 

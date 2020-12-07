@@ -33,7 +33,7 @@ enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
         case updateCalculationResult(Int)
     }
     
-    struct Model: RecoverableModel, Copyable {
+    struct Model: Copyable {
         var leftOperand: Int?
         var rightOperand: Int?
         var result: Int?
@@ -42,19 +42,15 @@ enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
         var canMakeRequest: Bool {
             return leftOperand != nil && rightOperand != nil
         }
-        
-        static var initial: Model {
-            return Model(
-                leftOperand: nil, 
-                rightOperand: nil,
-                result: nil,
-                isLoading: false
-            )
-        }
-        
-        func recover(from error: Error) -> Model {
-            return copy { $0.isLoading = false }
-        }
+    }
+    
+    static var initialModel: Model {
+        Model(
+            leftOperand: nil,
+            rightOperand: nil,
+            result: nil,
+            isLoading: false
+        )
     }
     
     static var initialCommand: Command { return .none }
@@ -109,6 +105,10 @@ enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
     
     static func handleError(_ error: Error) -> Effect<Environment, Error> {
         return env.alert(error: error)
+    }
+    
+    static func recover(_ model: Model, from error: Error) -> Model {
+        model.copy { $0.isLoading = false }
     }
     
     typealias ViewModel = ErrorHandlingAdderViewModel

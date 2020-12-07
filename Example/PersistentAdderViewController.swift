@@ -35,18 +35,18 @@ enum PersistentAdder: Program {
         case updateRightOperand(String?)
     }
     
-    struct Model: ModelType, Copyable {
+    struct Model: Copyable {
         var leftOperand: Int?
         var rightOperand: Int?
         
         var result: Int? { return leftOperand.flatMap { x in rightOperand.map { y in x + y } } }
-        
-        static var initial: Model {
-            return Model(
-                leftOperand: nil, 
-                rightOperand: nil
-            )
-        }
+    }
+    
+    static var initialModel: Model {
+        return Model(
+            leftOperand: nil,
+            rightOperand: nil
+        )
     }
     
     static var initialCommand: Command { 
