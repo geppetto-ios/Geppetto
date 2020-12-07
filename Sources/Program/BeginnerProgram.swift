@@ -12,7 +12,7 @@ import RxSwift
 public protocol BeginnerProgram: IndependentProgram, StateMachine { }
 
 public extension BeginnerProgram {
-    static func bind<V>(with view: V) where V: View, V.Model == ViewModel, V.Message == Message {
+    static func bind<V>(with view: V) where V: ViewController<Self> {
         bind(with: view, dependency: Unit(), environment: Unit())
     }
 }

@@ -26,7 +26,7 @@ public extension StateMachine {
 }
 
 public extension StateMachine {
-    static func bind<V>(with view: V, dependency: Dependency) where V: View, V.Model == ViewModel, V.Message == Message {
+    static func bind<V>(with view: V, dependency: Dependency) where V: ViewController<Self> {
         bind(with: view, dependency: dependency, environment: Unit())
     }
 }
