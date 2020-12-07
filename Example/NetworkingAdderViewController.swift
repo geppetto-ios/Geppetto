@@ -21,7 +21,7 @@ class NetworkingAdderEnvironment: EnvironmentType, HasURLSession {
     static let shared: NetworkingAdderEnvironment = NetworkingAdderEnvironment()
 }
 
-enum NetworkingAdder: Program {
+enum NetworkingAdder: IndependentProgram {
     typealias Environment = NetworkingAdderEnvironment
     
     enum Message {
@@ -31,7 +31,7 @@ enum NetworkingAdder: Program {
         case updateCalculationResult(Int?)
     }
     
-    struct Model: ModelType, Copyable {
+    struct Model: Copyable {
         var leftOperand: Int?
         var rightOperand: Int?
         var result: Int?
@@ -40,15 +40,10 @@ enum NetworkingAdder: Program {
         var canMakeRequest: Bool {
             return leftOperand != nil && rightOperand != nil
         }
-        
-        static var initial: Model {
-            return Model(
-                leftOperand: nil, 
-                rightOperand: nil,
-                result: nil,
-                isLoading: false
-            )
-        }
+    }
+    
+    static var initialModel: Model {
+        Model(leftOperand: nil, rightOperand: nil, result: nil, isLoading: false)
     }
     
     static var initialCommand: Command { return .none }
@@ -100,10 +95,10 @@ enum NetworkingAdder: Program {
         }
     }
     
-    typealias ViewModel = String?
+    typealias ViewModel = NetworkingAdderViewModel
     
     static func view(model: Model) -> ViewModel {
-        return model.resultText
+        return model
     }
 }
 

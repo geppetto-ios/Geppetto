@@ -10,19 +10,16 @@ import Foundation
 import RxSwift
 import RxSwiftExt
 
-public protocol RecoverableModel: ModelType {
-    func recover(from error: Error) -> Self
-}
-
-public protocol ErrorHandlingProgram: Program where Self.Model: RecoverableModel {
+public protocol ErrorHandlingProgram: Program {
+    static func recover(_ model: Model, from error: Error) -> Model
     static func handleError(_ error: Error) -> Effect<Environment, Error>
 }
 
 public extension ErrorHandlingProgram {
-    static func bind<V>(with view: V, environment: Environment) where V: View, V.Model == Model, V.Message == Message {
+    static func bind<V>(with view: V, dependency: Dependency, environment: Environment) where V: View, V.Model == ViewModel, V.Message == Message {
         let messageProxy: PublishSubject<Message> = PublishSubject()
         
-        let model_command$: Observable<(Model, Command)> = app(messageProxy)
+        let model_command$: Observable<(Model, Command)> = app(dependency)(messageProxy)
             .share(replay: 1, scope: .forever)
         
         let model$: Observable<Model> = model_command$.map { $0.0 }
@@ -37,7 +34,7 @@ public extension ErrorHandlingProgram {
                     return Observable.just((nil, x))
                 case let .error(error):
                     let effect = handleError(error)
-                    let newModel = model.recover(from: error)
+                    let newModel = recover(model, from: error)
                     return effect.run(environment).asObservable().map { _ in (newModel, nil) }
                 case .completed:
                     return Observable.just((nil, nil))
@@ -52,7 +49,7 @@ public extension ErrorHandlingProgram {
         )
             
         let message$: Observable<Message> = Observable.merge(
-            mergedModel$.flatMapLatest(view.run),
+            mergedModel$.map(self.view).flatMapLatest(view.run),
             messageFromCommand$.map { $1 }.unwrap()
         )
         

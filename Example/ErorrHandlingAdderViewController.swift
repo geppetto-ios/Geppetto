@@ -23,7 +23,7 @@ class ErrorHandlingAdderEnvironment: EnvironmentType, HasURLSession, HasUIApplic
     static var shared: ErrorHandlingAdderEnvironment = ErrorHandlingAdderEnvironment() 
 }
 
-enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
+enum ErrorHandlingAdder: IndependentProgram, ErrorHandlingProgram {
     typealias Environment = ErrorHandlingAdderEnvironment
     
     enum Message {
@@ -33,7 +33,7 @@ enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
         case updateCalculationResult(Int)
     }
     
-    struct Model: RecoverableModel, Copyable {
+    struct Model: Copyable {
         var leftOperand: Int?
         var rightOperand: Int?
         var result: Int?
@@ -42,19 +42,15 @@ enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
         var canMakeRequest: Bool {
             return leftOperand != nil && rightOperand != nil
         }
-        
-        static var initial: Model {
-            return Model(
-                leftOperand: nil, 
-                rightOperand: nil,
-                result: nil,
-                isLoading: false
-            )
-        }
-        
-        func recover(from error: Error) -> Model {
-            return copy { $0.isLoading = false }
-        }
+    }
+    
+    static var initialModel: Model {
+        Model(
+            leftOperand: nil,
+            rightOperand: nil,
+            result: nil,
+            isLoading: false
+        )
     }
     
     static var initialCommand: Command { return .none }
@@ -111,11 +107,13 @@ enum ErrorHandlingAdder: Program, ErrorHandlingProgram {
         return env.alert(error: error)
     }
     
-    typealias ViewModel = String?
-    
-    static func view(model: Model) -> ViewModel {
-        return model.resultText
+    static func recover(_ model: Model, from error: Error) -> Model {
+        model.copy { $0.isLoading = false }
     }
+    
+    typealias ViewModel = ErrorHandlingAdderViewModel
+    
+    static func view(model: Model) -> ViewModel { model }
 }
 
 protocol ErrorHandlingAdderViewModel {

@@ -17,18 +17,15 @@ enum SimpleAdder: BeginnerProgram {
         case updateRightOperand(String?)
     }
     
-    struct Model: ModelType, Copyable {
+    struct Model: Copyable {
         var leftOperand: Int?
         var rightOperand: Int?
         
-        var result: Int? { return leftOperand.flatMap { x in rightOperand.map { y in x + y } } }
-        
-        static var initial: Model {
-            return Model(
-                leftOperand: nil, 
-                rightOperand: nil
-            )
-        }
+        var result: Int? { leftOperand.flatMap { x in rightOperand.map { y in x + y } } }
+    }
+    
+    static var initialModel: Model {
+        Model(leftOperand: nil, rightOperand: nil)
     }
     
     static func update(model: Model, message: Message) -> Model {
@@ -81,7 +78,6 @@ class SimpleAdderViewController: ViewController<SimpleAdder> {
             .disposed(by: disposeBag)
         
         rx.updated
-            .map { $0.resultText }
             .bind(to: resultLabel.rx.text)
             .disposed(by: disposeBag)
     }

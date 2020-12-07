@@ -11,18 +11,18 @@ import RxSwiftExt
 
 public typealias Cmd<E, T> = Reader<E, Observable<T>>
 
-public protocol ModelType {
-    static var initial: Self { get }
-}
-
 public protocol Program {
+    associatedtype Dependency
     associatedtype Environment: EnvironmentType
     associatedtype Message
-    associatedtype Model: ModelType
+    associatedtype Model
+    associatedtype ViewModel
     typealias Command = Cmd<Environment, Message?>
     
-    static var initialCommand: Command { get }
+    static func initialModel(_ dependency: Dependency) -> Model
+    static func initialCommand(_ dependency: Dependency) -> Command
     static func update(model: Model, message: Message) -> (Model, Command)
+    static func view(model: Model) -> ViewModel
 }
 
 public extension Program {
@@ -32,28 +32,34 @@ public extension Program {
 }
 
 public extension Program {
-    static func app(_ message$: Observable<Message>) -> (Observable<(Model, Command)>) {
-        return message$
-            .scan((Model.initial, initialCommand)) { model_command, message -> (Self.Model, Command) in
-                let (model, _) = model_command
-                return update(model: model, message: message)
-            }
-            .startWith((Model.initial, initialCommand))
+    static func app(_ dependency: Dependency) -> (Observable<Message>) -> (Observable<(Model, Command)>) {
+        { (message$: Observable<Message>) in
+            let (initModel, initCommand): (Model, Command) = (
+                initialModel(dependency),
+                initialCommand(dependency)
+            )
+            return message$
+                .scan((initModel, initCommand)) { model_command, message -> (Self.Model, Command) in
+                    let (model, _) = model_command
+                    return update(model: model, message: message)
+                }
+                .startWith((initModel, initCommand))
+        }
     }
 }
 
 public extension Program {
-    static func bind<V>(with view: V, environment: Environment) where V: View, V.Model == Model, V.Message == Message {
+    static func bind<V>(with view: V, dependency: Dependency, environment: Environment) where V: View, V.Model == ViewModel, V.Message == Message {
         let messageProxy: PublishSubject<Message> = PublishSubject()
         
-        let model_command$: Observable<(Model, Command)> = app(messageProxy)
+        let model_command$: Observable<(Model, Command)> = app(dependency)(messageProxy)
             .share(replay: 1, scope: .forever)
         
         let model$: Observable<Model> = model_command$.map { $0.0 }
         let command$: Observable<Command> = model_command$.map { $0.1 }
         
         let message$: Observable<Message> = Observable.merge(
-            model$.flatMapLatest(view.run),
+            model$.map(self.view).flatMapLatest(view.run),
             command$.flatMap(environment.run)
         )
         

@@ -40,7 +40,7 @@ class ExampleListViewController: UITableViewController {
         case .showErrorHandlingAdder:
             if 
                 let vc = segue.destination as? ErrorHandlingAdderViewController {
-                ErrorHandlingAdder.bind(with: vc, environment: .shared)
+                ErrorHandlingAdder.bind(with: vc, dependency: .init(), environment: .shared)
             }
         }
     }
