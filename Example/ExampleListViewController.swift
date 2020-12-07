@@ -28,13 +28,13 @@ class ExampleListViewController: UITableViewController {
         case .showPersistentAdder:
             if 
                 let vc = segue.destination as? PersistentAdderViewController {
-                PersistentAdder.bind(with: vc, environement: .shared)
+                PersistentAdder.bind(with: vc, environment: .shared)
             }
             
         case .showNetworkingAdder:
             if 
                 let vc = segue.destination as? NetworkingAdderViewController {
-                NetworkingAdder.bind(with: vc, environement: .shared)
+                NetworkingAdder.bind(with: vc, environment: .shared)
             }
             
         case .showErrorHandlingAdder:
