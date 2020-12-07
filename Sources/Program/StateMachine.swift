@@ -11,12 +11,6 @@ import RxSwift
 
 extension Unit: EnvironmentType { }
 
-public extension Program where Environment == Unit {
-    static func bind<V>(with view: V) where V: View, V.Model == ViewModel, V.Message == Message {
-        return bind(with: view, environment: Unit())
-    }
-}
-
 public protocol StateMachine: Program where Environment == Unit {
     static func update(model: Model, message: Message) -> Model 
 }
@@ -28,5 +22,11 @@ public extension StateMachine {
     
     static func update(model: Model, message: Message) -> (Model, Command) {
         return (update(model: model, message: message), .none)
+    }
+}
+
+public extension StateMachine {
+    static func bind<V>(with view: V, dependency: Dependency) where V: View, V.Model == ViewModel, V.Message == Message {
+        bind(with: view, dependency: dependency, environment: Unit())
     }
 }

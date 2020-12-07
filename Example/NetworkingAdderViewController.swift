@@ -21,7 +21,7 @@ class NetworkingAdderEnvironment: EnvironmentType, HasURLSession {
     static let shared: NetworkingAdderEnvironment = NetworkingAdderEnvironment()
 }
 
-enum NetworkingAdder: Program {
+enum NetworkingAdder: IndependentProgram {
     typealias Environment = NetworkingAdderEnvironment
     
     enum Message {

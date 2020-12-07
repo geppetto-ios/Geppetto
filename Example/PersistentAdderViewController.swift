@@ -21,7 +21,7 @@ class PersistentAdderEnvironment: EnvironmentType, HasUserDefaults {
     static let shared: PersistentAdderEnvironment = PersistentAdderEnvironment()
 }
 
-enum PersistentAdder: Program {
+enum PersistentAdder: IndependentProgram {
     enum UserDefaultKey: String {
         case leftOperand
         case rightOperand

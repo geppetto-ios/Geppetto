@@ -33,13 +33,13 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
         }
     }
     
-    func present<P, VC>(_ type: VC.Type, animated: Bool, withNavigation: Bool = false, presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P>, P.Environment == Env {
+    func present<P, VC>(_ type: VC.Type, dependency: P.Dependency, animated: Bool, withNavigation: Bool = false, presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P>, P.Environment == Env {
         flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
             Effect<Env, UIViewController> { (env: Env) -> Single<UIViewController> in
                 Single<UIViewController>.create { [weak vc] single in
                     guard let vc = vc else { return Disposables.create() }
                     let target: VC = VC()
-                    P.bind(with: target, environment: env)
+                    P.bind(with: target, dependency: dependency, environment: env)
                     var targetToPresent: UIViewController
                     if withNavigation {
                         targetToPresent = UINavigationController(rootViewController: target)
@@ -69,13 +69,13 @@ public extension ReaderType where Value: PrimitiveSequenceType, Value.Trait == S
         }
     }
 
-    func push<P, VC>(_ type: VC.Type, animated: Bool) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P>, P.Environment == Env {
+    func push<P, VC>(_ type: VC.Type, dependency: P.Dependency, animated: Bool) -> Effect<Env, UIViewController> where P: Program, VC: ViewController<P>, P.Environment == Env {
         flatMapT { (vc: UIViewController) -> Effect<Env, UIViewController> in
             Effect<Env, UIViewController> { (env: Env) -> Single<UIViewController> in
                 Single<UIViewController>.create { [weak vc] single in
                     guard let vc = vc else { return Disposables.create() }
                     let targetToPush: VC = VC()
-                    P.bind(with: targetToPush, environment: env)
+                    P.bind(with: targetToPush, dependency: dependency, environment: env)
                     vc.navigationController?.pushViewController(targetToPush, animated: animated)
                     single(.success(targetToPush))
                     return Disposables.create()
